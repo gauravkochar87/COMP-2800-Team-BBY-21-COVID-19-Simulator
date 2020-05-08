@@ -3,13 +3,14 @@
 
 <head>
 
-    <title>About Us</title>
+    <title>News</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/aboutus.css">
+    <link rel="stylesheet" type="text/css" href="../css/news.css">
     <!-- <link rel="icon" href=""> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -17,7 +18,7 @@
 
 <body>
 
-    <!-- Navigation bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
         <div class="container">
             <a class="navbar-brand" href="#">COVID-19 SIMULATOR</a>
@@ -30,13 +31,13 @@
                     <li class="nav-item loggedOut">
                         <a class="nav-link" href="Pandemic.html">Home</a>
                     </li>
-                    <li class="nav-item loggedOut">
-                        <a class="nav-link" href="news.html">News</a>
-                    </li>
                     <li class="nav-item active loggedOut">
-                        <a class="nav-link" href="#">About
+                        <a class="nav-link" href="news.html">News
                             <span class="sr-only">(current)</span>
                         </a>
+                    </li>
+                    <li class="nav-item active loggedOut">
+                        <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item loggedOut">
                         <a class="nav-link" href="../index.html" id="signup">Sign In</a>
@@ -49,145 +50,13 @@
         </div>
     </nav>
 
-    <!-- Show Case -->
-    <div id="show-case">
+    <!-- News Articles -->
+    <div id="news-articles">
 
-        <div id="hamburger">
+        <!-- <script src="../scripts/news.js"></script> -->
 
-            <img id="hamburger-icon" src="../images/hamburger-icon.png" width="30px" height="30px">
 
-        </div>
-
-        <div>
-
-            <h1>About Us</h1>
-
-        </div>
-
-        <div id="read-more">
-
-            <a href="#welcome"><button>Read More</button></a>
-
-        </div>
-
-    </div>
-
-    <!-- Welcome -->
-    <div id="welcome">
-
-        <div>
-
-            <h1>Welcome</h1>
-
-        </div>
-
-        <div>
-
-            <p>Hey! We are BBY Team 21 from BCIT's COMP 2800 course. We are a group of 4 enthusiastic individuals that
-                are constantly
-                pushing each other out of our comfort zones. We believe that learning comes from struggling, and by the
-                end of the day we will grow as both individuals and as developers. Of course, we also support each other
-                when times get tough to ensure that we all succeed.</p>
-
-        </div>
-
-    </div>
-
-    <!-- Our Team -->
-    <div id="our-team">
-
-        <div>
-
-            <h1>Our Team</h1>
-
-        </div>
-
-        <div id="members">
-
-            <div id="gaurav">
-
-                <div class="profile-container">
-
-                    <div>
-
-                        <img src="../images/avatar.png">
-
-                    </div>
-
-                    <div>
-
-                        <p>Gaurav</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div id="winston">
-
-                <div class="profile-container">
-
-                    <div>
-
-                        <img src="../images/avatar.png">
-
-                    </div>
-
-                    <div>
-
-                        <p>Winston</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div id="jeff">
-
-                <div class="profile-container">
-
-                    <div>
-
-                        <img src="../images/avatar.png">
-
-                    </div>
-
-                    <div>
-
-                        <p>Jeff</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div id="jonny">
-
-                <div class="profile-container">
-
-                    <div>
-
-                        <img src="../images/avatar.png">
-
-                    </div>
-
-                    <div>
-
-                        <p>Jonny</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+    <!-- Footer -->
     <div id="footer">
 
         <div id="contact-us">
