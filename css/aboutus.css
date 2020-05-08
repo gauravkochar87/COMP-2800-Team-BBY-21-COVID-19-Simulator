@@ -271,6 +271,12 @@ body
     text-align: center;
     color: white;
     font-size: 10pt;
+    margin: 10px 0 10px 0;
+}
+
+#copyright div
+{
+    align-self: center;
 }
 
 /* Responsive layout - when the screen is wider than 1024px */
