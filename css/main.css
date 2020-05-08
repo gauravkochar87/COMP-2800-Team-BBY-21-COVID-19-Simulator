@@ -1,15 +1,44 @@
-
-/*_______________________________________*/
-/*~~~~~ Style the body of the page ~~~~~*/
-
 body {
-    background: #76b852;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-    background: -moz-linear-gradient(right, #76b852, #8DC26F);
-    background: -o-linear-gradient(right, #76b852, #8DC26F);
-    background: linear-gradient(to left, #76b852, #8DC26F);
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
+}
+
+h1 {
+  font-size: 24pt;
+}
+
+/* MEDIA QUERIES*/
+
+
+@media screen and (min-width: 1025px) {
+
+  body {
+  }
+
+  .title {
+    background-color: dimgray;
+    color: white;
+    padding: 1px;
+    margin: 0;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  
+  
+  .right-sidebar {
+    grid-column: 2 / span 4;
+  }
+  
+  .sideItem {
+    border: 1px solid;
+    margin: 1px;
+    background-color: dimgray;
+    color: aliceblue;
+    
+  }
+  
+  
+  
 }
