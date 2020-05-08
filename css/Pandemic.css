@@ -1,0 +1,64 @@
+body {
+
+}
+
+h1 {
+  font-size: 24pt;
+}
+
+/* MEDIA QUERIES*/
+
+
+@media screen and (min-width: 1025px) {
+
+  body {
+  }
+
+  .title {
+    background-color: dimgray;
+    color: white;
+    padding: 1px;
+    margin: 0;
+  }
+  
+  .menu {
+    background-color: #1f1f1f;
+    margin: 0;
+    padding; 7px;
+  }
+  
+  .navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menuItem {
+    display: inline;
+    color: aliceblue;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  
+  .map {
+    grid-column : 1 / span 3;
+  }
+  
+  .right-sidebar {
+    grid-column: 5;
+  }
+  
+  .sideItem {
+    border: 1px solid;
+    margin: 1px;
+    background-color: dimgray;
+    color: aliceblue;
+    
+  }
+  
+  
+  
+}
