@@ -1,29 +1,28 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>Main page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  
+<title>COVID-19 Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset='utf-8'>
+  
+<link rel="stylesheet" href="../css/Pandemic.css">
+  
+  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+  
 </head>
-
+  
 <body>
-    <!-- nav bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+  
+  
+<!-- nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top shadow">
         <div class="container">
-            <a class="navbar-brand" id ="usergreet" href="#"></a>
+             <a class="navbar-brand" id ="usergreet" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,17 +46,40 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav>  
+  
+<div class="grid">
+  
 
-    <!-- welcome message -->
-    <div id="welcome" style="width:50%;margin:auto;"></div>
-
-    <!-- map -->
-    <div id="map" style="width:40%;margin:auto;">
-        <iframe id="google_map" src="https://maps.google.co.uk?output=embed" width="600" height="450" frameborder="0"
+  
+  
+  <!-- Main Pandemic Window View-->
+  
+  <!-- map -->
+    <div id="map">
+        <iframe id="google_map" src="https://maps.google.co.uk?output=embed" width="920" height="510" frameborder="0"
             style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
-    <button id="location">Get My Location</button>
+  
+  <div class="right-sidebar">
+    <div class="sideItem">
+      <p id="current-total">Total cases: </p>
+    </div>
+    
+    <div class="sideItem">
+      <p id="region-total">Total by region</p>
+    </div>
+    
+    <div class="sideItem">
+      <p id="age-total">Total by age</p>
+    </div>
+    
+  </div>
+  
+  
+</div>
+  
+  
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -88,7 +110,13 @@
     <!-- MyJavaScript -->
     <!------------------>
     <script src="../scripts/main.js"></script>
+  
+<script src="https://d3js.org/d3.v5.min.js"></script> 
+<script src="../scripts/Pandemic.js"></script>
+<script src="../scripts/auth.js"></script>
+
 
 </body>
+
 
 </html>

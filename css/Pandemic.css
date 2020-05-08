@@ -21,34 +21,14 @@ h1 {
     margin: 0;
   }
   
-  .menu {
-    background-color: #1f1f1f;
-    margin: 0;
-    padding; 7px;
-  }
-  
-  .navigation {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menuItem {
-    display: inline;
-    color: aliceblue;
-  }
-  
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
   
-  .map {
-    grid-column : 1 / span 3;
-  }
   
   .right-sidebar {
-    grid-column: 5;
+    grid-column: 2 / span 4;
   }
   
   .sideItem {
