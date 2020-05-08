@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+
+    <title>News</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/news.css">
+    <!-- Favicon Links -->
+    <link rel="icon" type="image/png" href="../images/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  
-    <!-- Favicon Links -->
-    <link rel="icon" type="/image/png" href="images/favicon.png">
-    
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
         <div class="container">
             <a class="navbar-brand" href="#">COVID-19 SIMULATOR</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -33,18 +31,18 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item loggedOut">
-                        <a class="nav-link" href="html/main_page.html">Home
+                        <a class="nav-link" href="main_page.html">Home</a>
+                    </li>
+                    <li class="nav-item active loggedOut">
+                        <a class="nav-link" href="news.html">News
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item loggedOut">
-                        <a class="nav-link" href="html/news.html">News</a>
+                        <a class="nav-link" href="aboutus.html">About</a>
                     </li>
                     <li class="nav-item loggedOut">
-                        <a class="nav-link" href="html/aboutus.html">About</a>
-                    </li>
-                    <li class="nav-item loggedOut">
-                        <a class="nav-link" href="#" id="signup">Sign Up</a>
+                        <a class="nav-link" href="../index.html" id="signup">Sign In</a>
                     </li>
                     <li class="nav-item loggedIn">
                         <a class="nav-link" href="#" id="logout" style="display:none">Log Out</a>
@@ -54,30 +52,101 @@
         </div>
     </nav>
 
-    
+    <!-- News Articles -->
+    <div id="news-articles">
 
-    <div id="login-page">
-        <div class="form">
-            <form class="register-form">
-                <input type="text" placeholder="name" id="signup-name"  required/>
-                <input type="text" placeholder="email address" id="signup-email" required />
-                <input type="password" placeholder="password" id="signup-pswd" required/>
-                <button>create</button>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
-            </form>
-            <form class="login-form">
-                <input type="text" placeholder="username" id='login-email' required />
-                <input type="password" placeholder="password" id='login-pswd' required/>
-                <button>login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
-            </form>
-            <div id="success"><span>Sign Up Successful</span>
-                <a id="initial" href="html/main_page.html">Sign In now</a>
-            </div>
+        <!-- <script src="../scripts/news.js"></script> -->
+        <div>
+
+            <p>Lorem Ipsum</p>
+
         </div>
+
+        <div>
+
+            <p>Lorem Ipsum</p>
+
+        </div>
+
+        <div>
+
+            <p>Lorem Ipsum</p>
+
+        </div>
+
+        <div>
+
+            <p>Lorem Ipsum</p>
+
+        </div>
+
+    <!-- Footer -->
+    <div id="footer">
+
+        <div id="contact-us">
+
+            <div>
+                <p class="footer-title">CONTACT US</p>
+            </div>
+
+            <div>
+                <p>Lorem ipsum</p>
+            </div>
+
+            <div>
+                <p>Lorem ipsum</p>
+            </div>
+
+            <div>
+                <p>Lorem ipsum</p>
+            </div>
+
+        </div>
+
+        <div id="social">
+
+            <p>Social media</p>
+
+        </div>
+
+        <div>
+
+            <div>
+                <p class="footer-title">ABOUT SIMULATOR</p>
+            </div>
+
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eros lacus, fringilla non nunc
+                    nec, dictum tempor orci. Nulla sit amet tincidunt arcu. Duis porttitor semper nulla fringilla
+                    fringilla.</p>
+            </div>
+
+        </div>
+
     </div>
 
-    
+    <!-- Copyright -->
+    <div id="copyright">
+
+        <div>
+
+            <p>abcd</p>
+
+        </div>
+
+        <div>
+
+            <p>©2020 Team 21</p>
+
+        </div>
+
+        <div>
+
+            <p>COMP 2800</p>
+
+        </div>
+
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -100,11 +169,12 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <script src="scripts/firebaseapi.js"> </script>
+    <script src="../scripts/firebaseapi.js"> </script>
 
     <!-- Our scripts -->
-    <script src="scripts/auth.js"></script>
-    <script src="scripts/index.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/index.js"></script>
+
 </body>
 
 </html>
