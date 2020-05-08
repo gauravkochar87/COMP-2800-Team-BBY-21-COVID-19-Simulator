@@ -68,3 +68,17 @@ google.charts.load('current', {'packages':['corechart']});
         var chart = new google.visualization.AreaChart(document.getElementById('chart3_div'));
         chart.draw(data, options);
       }
+
+      
+///////////////////////////////////////////////////////////////
+////              Log out user from the app                ////
+///////////////////////////////////////////////////////////////
+
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
+    auth.signOut().then(() => {
+        //console.log("user signed out");
+        window.location = '../index.html';
+
+    });
+});
