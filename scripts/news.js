@@ -1,76 +1,80 @@
 // https://news.api.gov.bc.ca/api/Newsletters
 $(document).ready(function()
 {
-    // Initialize firebase database
-    // var db = firebase.firestore();
-
     // Current time in 24hr format
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" 
-        + today.getSeconds();
-    var date = today.getDate();
-    var dateTime = date + "T" + time;
+    // var today = new Date();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" 
+    //     + today.getSeconds();
+    // var date = today.getDate();
+    // var dateTime = date + "T" + time;
 
     // API info
-    const api_url = "https://news.api.gov.bc.ca/api/Newsletters?api-version=1.0&timestamp=" + dateTime;
-    const apiKey = "F0WKhsUdvFbAGtq1xT7oQlrAg5A99Csa"
+    const apiKey = "a7f71f04dd304d87b2a1d2ac8d4ab770"
+    const url = "http://newsapi.org/v2/top-headlines?country=ca&category=health&apiKey=" + apiKey;
 
-    async function getData(url)
+    // Fetch api data
+    // var req = new Request(url);
+
+    // fetch(req)
+    // .then(function(response)
+    // {
+    //     console.log(response.json());
+    //     response.json().then(data =>
+    //         {
+
+    //         });
+    // });
+
+    // function setup()
+    // {
+    //     noCanvas();
+    //     loadJSON(url, gotData);
+    // }
+
+    // function gotData(data)
+    // {
+    //     console.log(data.articles[0].title);
+    // }
+
+    // News Article Container
+    const newsList = $(".news-articles");
+
+    // Appends news articles to container
+    function appendNews(title, source, description)
     {
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
+
     }
 
-    getData(api_url);
+    
 
-    // /api/Newsletters:
-    // get:
-    //   tags:
-    //     - Newsletters
-    //   summary: Get all newsletters
-    //   operationId: Newsletters_GetAll
-    //   parameters:
-    //     - name: api-version
-    //       in: query
-    //       description: The requested API version
-    //       required: true
-    //       schema:
-    //         type: string
-    //         default: '1.0'
-    //   responses:
-    //     '200':
-    //       description: Success
-    //       content:
-    //         text/plain:
-    //           schema:
-    //             type: array
-    //             items:
-    //               $ref: '#/components/schemas/Newsletter'
-    //         application/json:
-    //           schema:
-    //             type: array
-    //             items:
-    //               $ref: '#/components/schemas/Newsletter'
-    //         text/json:
-    //           schema:
-    //             type: array
-    //             items:
-    //               $ref: '#/components/schemas/Newsletter'
+    fetch(url).then((res) =>
+    {
+        return res.json()
+    })
+    .then((data) =>
+    {
+        console.log(data)
+        data.articles.forEach(article =>
+            {
+                // grid for news article
+                let grid = document.createElement("div");
+                grid.className = "news-grid";
 
-    // [
-    //     {
-    //       "key": "string",
-    //       "timestamp": "2020-05-07T23:12:51.217Z",
-    //       "name": "string",
-    //       "ministryName": "string",
-    //       "description": "string",
-    //       "editions": [
-    //         {
-    //           "key": "string",
-    //           "value": "string"
-    //         }
-    //       ]
-    //     }
-    // ]
-})
+                // news title
+                let titleDiv = document.createElement("div");
+                titleDiv.className = "news-title";
+                let title = document.createElement("a");
+                title.setAttribute("href", article.url);
+                title.setAttribute("target", "_blank");
+                title.textContent = article.title;
+                titleDiv.appendChild(title);
+                
+                // news source
+                let source = document.createElement("div");
+                source.className = "news-source"
+                
+                newsList.appendChild(li);
+            })
+    });
+
+});

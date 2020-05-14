@@ -255,6 +255,8 @@ body
     text-align: center;
     color: white;
     font-size: 10pt;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 /* Responsive layout - when the screen is wider than 1024px */
