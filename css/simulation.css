@@ -1,0 +1,166 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+iframe {
+    border: 1px solid black;
+    width: 100%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.output {
+    background: #eee;
+}
+
+body {
+    background-color: rgba(157, 252, 212, 0.459);
+}
+
+#sim {
+    background-color: white;
+}
+
+.people,
+.param {
+    font-size: large;
+    font-weight: bold;
+    color: darkred;
+}
+
+#sim {
+    border: black solid 2px;
+    margin: auto;
+    width:1200px;
+    height:400px;
+}
+
+#days {
+    font-weight: bold;
+}
+
+ #img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 35% 35% 30%;
+    margin: 2% 2%;
+    margin-left:10%;
+    margin-right: 10%;
+    justify-items: center;
+    /* grid-gap:2%; */
+    grid-template-areas:
+        "sim sim sim"
+        "legend legend legend"
+        "control control control";
+}
+
+#sim {
+    grid-area: sim;
+    /* text-align: justify;
+    border: 1px solid gray;
+    background-color: whitesmoke;
+    border-radius: 3px;
+    padding:0% 2% 2% 2%; */
+    width:1000;
+    height:400;
+}
+
+#img-container {
+    grid-area: legend;
+}
+
+
+#control {
+    grid-area: control;
+}
+
+
+@media (max-width: 800px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "sim sim"
+            "legend legend"
+            "legend legend"
+            "control control"
+    }
+}
+
+@media (max-width: 400px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+        "sim"
+        "legend"
+        "legend"
+        "control"
+        "control";
+    }
+
+}

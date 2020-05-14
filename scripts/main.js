@@ -1,46 +1,4 @@
-//function to display logged In links
 
-// const loggedOutLinks = document.querySelectorAll('.loggedOut');
-// const loggedInLinks = document.querySelectorAll('.loggedIn');
-
-// const setupUI = (user) => {
-//     if (user) {
-//         loggedInLinks.forEach(item => {
-//             item.style.display = "block";
-//         });
-//         loggedOutLinks.forEach(item => {
-//             item.style.display = "none";
-//         });
-//     } else {
-//         loggedInLinks.forEach(item => {
-//             item.style.display = "none";
-//         });
-//         loggedOutLinks.forEach(item => {
-//             item.style.display = "block";
-//         });
-//     }
-// }
-
-//listen user state
-
-///////////////////////////////////////////////////////////////
-////               Greet User with WELCOME                 ////
-///////////////////////////////////////////////////////////////
-
-auth.onAuthStateChanged((user) => {
-    console.log(user);
-    if (user) {
-        console.log("user logged in");
-        document.getElementById('usergreet').innerHTML = '<span style="text-transform: capitalize">Welcome,  ' + auth.currentUser.displayName + '</span>';
-        console.log(auth.currentUser.displayName)
-        // setupUI(user);
-        //window.location ='main.html';
-    } else {
-        console.log("user logged out");
-        // setupUI();
-        //window.location='index.html'
-    }
-});
 
 
 //get data from database in realtime coz of onSnapshot
@@ -66,18 +24,6 @@ auth.onAuthStateChanged((user) => {
 
 
 
-///////////////////////////////////////////////////////////////
-////              Log out user from the app                ////
-///////////////////////////////////////////////////////////////
-
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', (e) => {
-    auth.signOut().then(() => {
-        //console.log("user signed out");
-        window.location = '../index.html';
-
-    });
-});
 
 
 ///////////////////////////////////////////////////////////////
@@ -93,7 +39,8 @@ let c = function (pos) {
     document.getElementById('google_map').setAttribute('src', 'https://maps.google.co.uk?q=' + co + '&z=15&output=embed');
 }
 
-document.getElementById('location').onclick = function () {
-    navigator.geolocation.getCurrentPosition(c);
-    return false;
-}
+// document.getElementById('location').onclick = function () {
+//     navigator.geolocation.getCurrentPosition(c);
+//     return false;
+// }
+

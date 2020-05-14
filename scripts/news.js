@@ -1,13 +1,12 @@
 // https://news.api.gov.bc.ca/api/Newsletters
-$(document).ready(function()
-{
+$(document).ready(function () {
     // Initialize firebase database
     // var db = firebase.firestore();
 
     // Current time in 24hr format
     var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" 
-        + today.getSeconds();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" +
+        today.getSeconds();
     var date = today.getDate();
     var dateTime = date + "T" + time;
 
@@ -15,8 +14,7 @@ $(document).ready(function()
     const api_url = "https://news.api.gov.bc.ca/api/Newsletters?api-version=1.0&timestamp=" + dateTime;
     const apiKey = "F0WKhsUdvFbAGtq1xT7oQlrAg5A99Csa"
 
-    async function getData(url)
-    {
+    async function getData(url) {
         const response = await fetch(url);
         const data = await response.json();
         console.log(data);
@@ -74,3 +72,4 @@ $(document).ready(function()
     //     }
     // ]
 })
+

@@ -1,41 +1,31 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-
-    <title>COVID-19 Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset='utf-8'>
-
-    <link rel="stylesheet" href="../css/main.css">
-
-
+    <meta charset="UTF-8" />
+    <title>Simulation</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
     <!-- Favicon Links -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
-
-
+    <link rel="stylesheet" href="../css/simulation.css">
 </head>
 
 <body>
 
 
     <!-- nav bar -->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top shadow">
         <div class="container">
-            <a id="usergreet" class="navbar-brand"  href="#"></a>
+            <a id="usergreet" class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    
                     <li class="nav-item loggedIn">
                         <a class="nav-link" href="main_page.html">Home</a>
                     </li>
@@ -51,6 +41,7 @@
                     <li class="nav-item loggedIn">
                         <a class="nav-link" href="simulation.html" id="signup">Simulation</a>
                     </li>
+
                     <li class="nav-item loggedIn">
                         <a class="nav-link" href="#" id="logout">Log Out</a>
                     </li>
@@ -59,39 +50,48 @@
         </div>
     </nav>
 
-    <div class="grid">
+    <!-- SIMULATION SECTION -->
+    <div class="grid-container">
+        <canvas id="sim"> </canvas>
+        <!-- <div><span id="days">00</span><span> Days later</span></div> -->
 
+        <!-- <input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["0", "10%", "33%", "50%", "100%"]' /> -->
 
-
-
-        <!-- Main Pandemic Window View-->
-
-        <!-- map -->
-        <div id="map">
-            <iframe id="google_map" src="https://maps.google.co.uk?output=embed" width="920" height="510"
-                frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <div id="img-container">
+            <div>
+                <img src="../images/isolated.png" />
+                <span class="people">Isolated people</span>
+            </div>
+            <div>
+                <img src="../images/unprotected.png" />
+                <span class="people">Unprotected people</span>
+            </div>
+            <div>
+                <img src="../images/masked.png" />
+                <span class="people">Masked people</span>
+            </div>
+            <div>
+                <img src="../images/infected.png" />
+                <span class="people">Infected people</span>
+            </div>
         </div>
 
-        <div class="right-sidebar">
-            <div class="sideItem">
-                <p id="current-total">Total cases: </p>
-            </div>
-
-            <div class="sideItem">
-                <p id="region-total">Total by region</p>
-            </div>
-
-            <div class="sideItem">
-                <p id="age-total">Total by age</p>
-            </div>
-
+        <!-- CONTROL VARIABLES -->
+        <div id="control" style="display:inline-block">
+            <label class="param">Isolation %</label>
+            <input id='iso' placeholder="people staying at home" required><span
+                style="color:red;font-size: x-large;font-weight: bold;">*</span><br>
+            <span class="param">Use mask</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <br>
+            <button id="start" type="button" class="btn btn-primary">Start</button>
+            <button id="stop" type="button" class="btn btn-primary">Clear</button>
         </div>
-
 
     </div>
-
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -117,18 +117,11 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <script src="../scripts/firebaseapi.js"> </script>
 
-    <!------------------>
-    <!-- MyJavaScript -->
-    <!------------------>
-    <script src="../scripts/main.js"></script>
-
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/auth.js"></script>
+    <!-- Our scripts -->
+    <script src="../scripts/simulation.js"></script>
     <script src="../scripts/common.js"></script>
 
 
 </body>
-
 
 </html>
