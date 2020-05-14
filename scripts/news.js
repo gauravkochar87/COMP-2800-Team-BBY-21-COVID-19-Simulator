@@ -70,8 +70,10 @@ $(document).ready(function()
                 titleDiv.appendChild(title);
                 
                 // news source
-                let source = document.createElement("div");
-                source.className = "news-source"
+                let sourceDiv = document.createElement("div");
+                sourceDiv.className = "news-source";
+                let source = document.createElement("p");
+                source.textContent = article
                 
                 newsList.appendChild(li);
             })
