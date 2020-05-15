@@ -118,12 +118,13 @@ body
 .news-source
 {
     font-size: 10pt;
-    color: rgb(100, 100, 100);
+    color: #505168;
 }
 
 .news-desc
 {
     font-size: 12pt;
+    color: rgb(100, 100, 100);
 }
 
 /* Footer */
