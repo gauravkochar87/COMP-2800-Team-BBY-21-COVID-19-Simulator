@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<title>COVID-19 Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset='utf-8'>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script async defer
@@ -36,10 +36,16 @@
 		  </li>
 		  <li class="nav-item loggedOut">
 			<a class="nav-link" href="faq.html">FAQ</a>
-		</li>
-          <li class="nav-item loggedIn">
+        </li>
+        <li class="nav-item loggedIn">
+            <a class="nav-link" href="Charts.html">Charts</a>
+        </li>
+        <li class="nav-item loggedIn">
+            <a class="nav-link" href="simulation.html" id="signup">Simulation</a>
+        </li>
+        <li class="nav-item loggedIn">
             <a class="nav-link" href="#" id="logout">Log Out</a>
-          </li>
+        </li>
         </ul>
         <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
           Charts
@@ -64,6 +70,8 @@
         <div class="portfolio">
             <div id="map"></div>
 
+        </div>
+    </div>
 
 
     <script>
@@ -225,10 +233,9 @@ chart3.render();
 </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	<script src="../scripts/Pandemic.js"></script>
-	<script src="../scripts/main.js"></script>
-        </div>
-    </div>
-
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/common.js"></script>
+       
 </body>
 </html>
 

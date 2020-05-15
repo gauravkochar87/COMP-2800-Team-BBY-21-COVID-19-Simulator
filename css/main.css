@@ -48,9 +48,10 @@ input:checked ~ .portfolio {
     right: 0;
 }
 
+/* 
 input:checked ~ label {
-    /* right: 50%; */
-}
+    right: 50%;
+} */
 
 label {
     z-index: 2;
