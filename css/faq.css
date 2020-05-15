@@ -23,7 +23,7 @@ body
 {
     display: flex;
     flex-direction: column;
-    background-image: url("../images/aboutus-banner.jpg");
+    background-image: url("../images/faq-banner.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -56,6 +56,9 @@ body
 #nav-btns
 {
     margin-top: 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 #nav-btns a
@@ -65,13 +68,14 @@ body
 
 #nav-btns button
 {
-    display: inline;
     width: 250px;
     height: 60px;
     font-size: 14pt;
     color: white;
     border: 1px solid white;
     border-radius: 5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
     background-color:rgba(0, 0, 0, .5);
 }
 
@@ -79,7 +83,6 @@ body
 {
     background-color: rgba(80, 81, 104, .9);
 }
-
 
 /* Symptoms Section*/
 
@@ -111,12 +114,15 @@ body
 }
 
 #illsec {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
 .illness img {
-    display: inline;
+    display: block;
     margin: auto;
     width: 150px;
     height: 150px;
@@ -128,6 +134,30 @@ body
 .illness p {
     font-size: 14pt;
     text-align: center;
+}
+
+#fever
+{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#cough
+{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#breath
+{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+#chills
+{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
 }
 
 /* Information section*/
@@ -204,7 +234,17 @@ body
   
 }
 
-
+/* Responsive layout - when the screen is wider than 1024px */
+@media screen and (min-width: 1025px)
+{
+    #illsec 
+    {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+}
 
 
 
