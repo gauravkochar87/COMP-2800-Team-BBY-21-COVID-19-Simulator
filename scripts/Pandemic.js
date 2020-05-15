@@ -13424,6 +13424,60 @@ function calcRegions() {
   return result; 
 }
 
+// function calDate() {
+//   var d1 = {date: "2020-01-26", count: 0 };
+
+//   var coastal = {name: "Vancouver Coastal",
+//                  count: 0};
+//   var interior = {name: "Interior",
+//                   count: 0};
+//   var island = {name: "Vancouver Island",
+//                 count: 0};
+//   var northern = {name: "Northern",
+//                   count: 0};
+  
+//   var result = [fraser, coastal, interior, island, northern];
+  
+//   for(var i = 0; i < data.length; i++) {
+//     switch(data[i].HA) {
+//       case "Fraser": {
+//         fraser.count++;
+//         break;
+//       }
+        
+//       case "Vancouver Coastal": {
+//         coastal.count++;
+//         break;
+//       }
+        
+//       case "Interior": {
+//         interior.count++;
+//         break;
+//       }
+      
+//       case "Vancouver Island": {
+//         island.count++;
+//         break;
+//       }
+        
+//       case "Northern": {
+//         northern.count++;
+//         break;
+//       }
+        
+        
+//     }
+    
+//   }
+  
+//   for (var j = 0; j < result.length; j++) {
+//     console.log(`${result[j].name} : ${result[j].count}`);
+//   }
+  
+  
+//   return result; 
+// }
+
 function calcAge() {
   
   var zeroCount = {name: "<10",
