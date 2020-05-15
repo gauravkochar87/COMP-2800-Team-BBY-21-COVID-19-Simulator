@@ -1,76 +1,109 @@
 // https://news.api.gov.bc.ca/api/Newsletters
 $(document).ready(function()
 {
-    // Initialize firebase database
-    // var db = firebase.firestore();
-
     // Current time in 24hr format
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" 
-        + today.getSeconds();
-    var date = today.getDate();
-    var dateTime = date + "T" + time;
+    // var today = new Date();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" 
+    //     + today.getSeconds();
+    // var date = today.getDate();
+    // var dateTime = date + "T" + time;
 
     // API info
-    const api_url = "https://news.api.gov.bc.ca/api/Newsletters?api-version=1.0&timestamp=" + dateTime;
-    const apiKey = "F0WKhsUdvFbAGtq1xT7oQlrAg5A99Csa"
+    const apiKey = "a7f71f04dd304d87b2a1d2ac8d4ab770"
+    const url = "http://newsapi.org/v2/top-headlines?country=ca&category=health&apiKey=" + apiKey;
 
-    async function getData(url)
+
+    // News Article Container
+    const newsList = document.querySelector(".news-articles");
+
+    // Appends news articles components to the news section of news.html
+    function appendNews(grid, title, source, desc)
     {
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
+        grid.appendChild(title);
+        grid.appendChild(source);
+        grid.appendChild(desc);
+        
+        newsList.appendChild(grid);
     }
 
-    getData(api_url);
+    // create a grid for the news article
+    function createGrid()
+    {
+        let grid = document.createElement("div");
+        grid.className = "news-grid";
 
-    // /api/Newsletters:
-    // get:
-    //   tags:
-    //     - Newsletters
-    //   summary: Get all newsletters
-    //   operationId: Newsletters_GetAll
-    //   parameters:
-    //     - name: api-version
-    //       in: query
-    //       description: The requested API version
-    //       required: true
-    //       schema:
-    //         type: string
-    //         default: '1.0'
-    //   responses:
-    //     '200':
-    //       description: Success
-    //       content:
-    //         text/plain:
-    //           schema:
-    //             type: array
-    //             items:
-    //               $ref: '#/components/schemas/Newsletter'
-    //         application/json:
-    //           schema:
-    //             type: array
-    //             items:
-    //               $ref: '#/components/schemas/Newsletter'
-    //         text/json:
-    //           schema:
-    //             type: array
-    //             items:
-    //               $ref: '#/components/schemas/Newsletter'
+        return grid;
+    }
 
-    // [
-    //     {
-    //       "key": "string",
-    //       "timestamp": "2020-05-07T23:12:51.217Z",
-    //       "name": "string",
-    //       "ministryName": "string",
-    //       "description": "string",
-    //       "editions": [
-    //         {
-    //           "key": "string",
-    //           "value": "string"
-    //         }
-    //       ]
-    //     }
-    // ]
+    // create a title and put it in a div
+    function createTitle(titleText, url)
+    {
+        let titleDiv = document.createElement("div");
+        titleDiv.className = "news-title";
+        let title = document.createElement("a");
+        title.setAttribute("href", url);
+        title.setAttribute("target", "_blank");
+        title.textContent = titleText;
+        titleDiv.appendChild(title);
+
+        return titleDiv;
+    }
+
+    // create a source and put it in a div
+    function createSource(sourceText)
+    {
+        let sourceDiv = document.createElement("div");
+        sourceDiv.className = "news-source";
+        let source = document.createElement("p");
+        source.textContent = "(" + sourceText + ")" ;
+        sourceDiv.appendChild(source);
+
+        return sourceDiv;
+    }
+
+    // create a description and put it in a div
+    function createDesc(descText)
+    {
+        let descDiv = document.createElement("div");
+        descDiv.className = "news-desc";
+        let desc = document.createElement("p");
+        desc.textContent = descText;
+        descDiv.appendChild(desc);
+
+        return descDiv;
+    }
+
+    // Fetches 
+    fetch(url).then((res) =>
+    {
+        return res.json()
+    })
+    .then((data) =>
+    {
+        console.log(data)
+        data.articles.forEach(article =>
+            {
+                // grid for news article
+                let grid = createGrid();
+
+                // news title
+                let titleText = article.title;
+                let url = article.url;
+                let title = createTitle(titleText, url);
+                
+                // news source
+                let sourceText = article.source.name;
+                let source = createSource(sourceText);
+
+                // news description
+                let descText = article.description;
+                let desc = createDesc(descText);
+
+                appendNews(grid, title, source, desc);
+            })
+    })
+    .catch(error =>
+    {
+        console.log(error);
+    });
 })
