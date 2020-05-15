@@ -1,38 +1,40 @@
-// import utils from './utils'
-let status = true;
+///////////////////////////////////////////////////////////////
+////               ALL CONSTANTS DECLARATION               ////
+///////////////////////////////////////////////////////////////
+
 const peopleCount = 100;
-let isolationFactor; // % of people who self isolate
-let allInfected = false;
-const radius = 10;
 const iso = document.getElementById('iso');
 const checkbox = document.querySelector('input[type="checkbox"]');
-let peopleInfectedCount = 1;
-
-console.log(document.getElementById('sim').clientWidth)
-console.log(document.getElementById('sim').offsetWidth)
-
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
-console.log(c);
-console.log(innerWidth);
+
+///////////////////////////////////////////////////////////////
+////               ALL VARIABLES DECLARATION               ////
+///////////////////////////////////////////////////////////////
+
+let peopleInfectedCount = 1;
+let isoValue;
+let sound = new Audio("../audio/easter.mp3");
+let status = true;
+let isolationFactor; // % of people who self isolate
+let allInfected = false;
+let radius = 10;
+
+//console.log(document.getElementById('sim').clientWidth)
+//console.log(document.getElementById('sim').offsetWidth)
+
+
+//console.log(c);
+//console.log(innerWidth);
+
+///////////////////////////////////////////////////////////////
+////              SETS CANVAS HEIGHT AND WIDTH             ////
+///////////////////////////////////////////////////////////////
+
 canvas.width = document.getElementById('sim').offsetWidth;
 canvas.height = document.getElementById('sim').offsetHeight;
 
-console.log(isolationFactor);
-// const mouse = {
-//     x: innerWidth / 2,
-//     y: innerHeight / 2
-// }
-// console.log(mouse.x);
-
-//const colors = ['#2185C5', '#7ECEFD', '#FFF6E5', 'red']
-
-// Event Listeners
-// addEventListener('mousemove', (event) => {
-//   //console.log(event.clientX)
-//   mouse.x = event.clientX
-//   mouse.y = event.clientY
-// })
+//console.log(isolationFactor);
 
 // addEventListener('click', () => {
 //   canvas.width = window.innerWidth
@@ -41,7 +43,11 @@ console.log(isolationFactor);
 //   init()
 // })
 
-// Objects created using class is ECMA 6
+///////////////////////////////////////////////////////////////
+////                  BALL OBJECT CREATION                 ////
+///////////////////////////////////////////////////////////////
+
+
 class Ball {
     constructor(x, y, radius, dx, dy, color) {
         // this.status = true;
@@ -136,6 +142,26 @@ class Ball {
         //el.innerHTML = "Number";
     }
 
+    // EASTER EGG FUNCTION //
+
+    update2() {
+        //if (this.status) {
+        if (this.y + this.radius + this.dy > canvas.height) {
+            this.dy = -this.dy; //multiply by friction if to create  gravity
+        } else {
+            this.dy += 1; // this rate decide the velocity of the ball more faster; less slower
+        }
+
+        if (this.x + this.radius + this.dx > canvas.width || this.x - this.radius <= 0) {
+            this.dx = -this.dx;
+        }
+
+        this.y += this.dy;
+        this.x += this.dx;
+
+        this.draw()
+    }
+
     //console.log(peopleInfectedCount);
 
 }
@@ -147,6 +173,7 @@ let ball = [];;
 ///////////////////////////////////////////////////////////////
 ////                  CASE 1 where no masks                ////
 ///////////////////////////////////////////////////////////////
+
 function init1() {
     ball = [];
     for (let i = 0; i < peopleCount; i++) {
@@ -156,6 +183,7 @@ function init1() {
         let dx = Math.random() * 2 + 1; // - .5;
         let dy = Math.random() * 2 + 1; // - .5;
         let color;
+        radius = 10;
 
         // to make 1st person infected
         if (i === 0) {
@@ -177,11 +205,6 @@ function init1() {
             dy = 0;
         }
 
-        //to make some blue dots which represent masks
-        // if (i % 5 === 0 && i > 0) {
-        //     color = '0000ff';
-        // }
-
         if (i > 0) { //to make sure balls don't overlap
             for (let j = 0; j < ball.length; j++) {
                 if (distance(x, y, ball[j].x, ball[j].y) - radius * 2 < 0) {
@@ -199,17 +222,18 @@ function init1() {
 }
 
 ///////////////////////////////////////////////////////////////
-////                  CASE 2 where no masks                ////
+////                  CASE 2 WITH  MAKS                    ////
 ///////////////////////////////////////////////////////////////
 function init2() {
     ball = [];
     for (let i = 0; i < peopleCount; i++) {
-        //randomIntFromRange(10, 50);
+
         let y = randomIntFromRange(radius, canvas.height - radius);
         let x = randomIntFromRange(radius, canvas.width - radius);
         let dx = Math.random() * 2 + 1; // - .5;
         let dy = Math.random() * 2 + 1; // - .5;
         let color;
+        radius = 10;
 
         // to make 1st person infected
         if (i === 0) {
@@ -253,25 +277,55 @@ function init2() {
 
 }
 
+///////////////////////////////////////////////////////////////
+////                  CASE 3 EASTER EGG                    ////
+///////////////////////////////////////////////////////////////
+
+function init3() {
+    ball = [];
+
+    for (let i = 0; i < 80; i++) {
+        radius = randomIntFromRange(10, 30);
+        let y = randomIntFromRange(radius, canvas.height - radius);
+        let x = randomIntFromRange(radius, canvas.width - radius);
+        let color = Math.floor(Math.random() * 16777215).toString(16);
+        let dx = randomIntFromRange(-3, 3);
+        let dy = randomIntFromRange(1, 3);
+        ball.push(new Ball(x, y, radius, dx, dy, color));
+    }
+    easter = true;
+}
+
 
 ///////////////////////////////////////////////////////////////
-////               Calculates isolation factor             ////
+////          Sets isolation factor and Init func          ////
 ///////////////////////////////////////////////////////////////
+
 iso.addEventListener('input', (e) => {
-    if (e.target.value === 0) {
+    isoValue = parseInt(e.target.value);
+    console.log(isoValue);
+    console.log(isoValue === 100);
+
+    if (isoValue === 0) {
         isolationFactor = 0;
     } else {
-        isolationFactor = Math.floor((100 / e.target.value));
+        isolationFactor = Math.floor((100 / isoValue));
     }
     console.log(isolationFactor);
     status = true;
     init1();
     checkbox.addEventListener('change', function () {
         if (checkbox.checked) {
-            // do this
-            console.log('Checked');
-            status = true;
-            init2();
+            if (isoValue === 100) {
+                status = true;
+                console.log('Checked2');
+                init3();
+            } else {
+                // do this
+                console.log('Checked');
+                status = true;
+                init2();
+            }
         } else {
             // do that
             console.log('Not checked');
@@ -280,58 +334,53 @@ iso.addEventListener('input', (e) => {
         }
     });
 });
+console.log(checkbox.checked);
 
-// let checkbox = document.querySelector('input[type="checkbox"]');
-// init1();
-// checkbox.addEventListener('change', function() {
-//     if (checkbox.checked) {
-//         // do this
-//         console.log('Checked');
-//         status = true;
-//         init2();
-//     } else {
-//         // do that
-//         console.log('Not checked');
-//         status = true;
-//         init1();
-//     }
-// });
-
-// Animation Loop
-let x = 0;
+///////////////////////////////////////////////////////////////
+////                    ANIMATION LOOP                     ////
+///////////////////////////////////////////////////////////////
 
 function animate() {
-    //to start the clock
-    // if (x < 1) {
-    //     track();
-    //     x++;
-    // }
+
     if (!status) {
         return;
     }
     requestAnimationFrame(animate) // this calls animate fun over and over again
     c.clearRect(0, 0, canvas.width, canvas.height);
+    //console.log(isoValue);
+    if (isoValue === 100) {
+        sound.play();
+        for (let index = 0; index < ball.length; index++) {
+            ball[index].update2();
 
-    for (let index = 0; index < ball.length; index++) {
-        ball[index].update(ball);
+        }
+    } else {
+        for (let index = 0; index < ball.length; index++) {
+            ball[index].update(ball);
 
+        }
     }
 }
 
+///////////////////////////////////////////////////////////////
+////                    CLEARS ANIMATION                   ////
+///////////////////////////////////////////////////////////////
 function inanimate() {
     ball = [];
     c.clearRect(0, 0, canvas.width, canvas.height);
     iso.value = ' ';
     checkbox.checked = false;
     status = false;
+    location.reload();
+
+
 }
 
 
-//init();
 
-//animate();
-
-//utility functions
+///////////////////////////////////////////////////////////////
+////                  UTILITY FUNCTIONS                    ////
+///////////////////////////////////////////////////////////////
 
 function randomIntFromRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -349,6 +398,16 @@ function distance(x1, y1, x2, y2) {
 }
 
 
+///////////////////////////////////////////////////////////////
+////                EXECUTING ANIMATIONS                    ////
+///////////////////////////////////////////////////////////////
+
+document.getElementById('start').onclick = animate;
+document.getElementById('stop').onclick = inanimate;
+
+
+
+
 //timer for number of days
 
 // let sec = 0;
@@ -363,6 +422,3 @@ function distance(x1, y1, x2, y2) {
 //         //document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
 //     }, 1000);
 // }
-
-document.getElementById('start').onclick = animate;
-document.getElementById('stop').onclick = inanimate;
