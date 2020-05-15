@@ -21,3 +21,6 @@ firebase.initializeApp(firebaseConfig);
 //making auth and firestore refrences
 const db = firebase.firestore();
 const auth = firebase.auth();
+// db.settings({
+//     timestampsInSnapshots: true
+// }); // for working with timestamps in snapshot
