@@ -288,3 +288,21 @@ update.addEventListener('submit', (e) => {
     })
     update.newwash.value = '';
 })
+
+
+
+///////////////////////////////////////////////////////////////
+////                    MAP FUNCTION                       ////
+///////////////////////////////////////////////////////////////
+
+var map;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+            lat: 49.283832198,
+            lng: -123.119332856
+        },
+        zoom: 15
+    });
+}
