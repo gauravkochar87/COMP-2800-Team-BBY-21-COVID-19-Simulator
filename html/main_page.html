@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item loggedOut">
-            <a class="nav-link" href="main_page.html">Home</a>
+            <a class="nav-link" href="main_page.html"><b>Home</b></a>
           </li>
           <li class="nav-item loggedOut">
             <a class="nav-link" href="news.html">News</a>
@@ -38,18 +38,12 @@
 			<a class="nav-link" href="faq.html">FAQ</a>
         </li>
         <li class="nav-item loggedIn">
-            <a class="nav-link" href="Charts.html">Charts</a>
-        </li>
-        <li class="nav-item loggedIn">
             <a class="nav-link" href="simulation.html" id="signup">Simulation</a>
         </li>
         <li class="nav-item loggedIn">
             <a class="nav-link" href="#" id="logout">Log Out</a>
         </li>
         </ul>
-        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
-          Charts
-        </button>
       </div>
     </div>
   </nav>
@@ -202,7 +196,9 @@ var chart3 = new CanvasJS.Chart("chartContainer3", {
 	animationEnabled: true,
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "Distribution by Age"
+		text: "Distribution by Age",
+		fontFamily: "arial black",
+		fontColor: "#695A42"
 	},
 	axisY: {
 	
