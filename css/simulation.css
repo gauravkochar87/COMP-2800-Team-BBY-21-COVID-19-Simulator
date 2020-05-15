@@ -90,25 +90,25 @@ body {
 #sim {
     border: black solid 2px;
     margin: auto;
-    width:1200px;
-    height:400px;
+    width: 1200px;
+    height: 400px;
 }
 
 #days {
     font-weight: bold;
 }
 
- #img-container {
+#img-container {
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
 
 .grid-container {
     display: grid;
     grid-template-columns: 35% 35% 30%;
     margin: 2% 2%;
-    margin-left:10%;
+    margin-left: 10%;
     margin-right: 10%;
     justify-items: center;
     /* grid-gap:2%; */
@@ -125,8 +125,8 @@ body {
     background-color: whitesmoke;
     border-radius: 3px;
     padding:0% 2% 2% 2%; */
-    width:1000;
-    height:400;
+    width: 1000;
+    height: 400;
 }
 
 #img-container {
@@ -156,11 +156,21 @@ body {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
-        "sim"
-        "legend"
-        "legend"
-        "control"
-        "control";
+            "sim"
+            "legend"
+            "legend"
+            "control"
+            "control";
     }
 
 }
+
+.form-check-label {
+    margin-left: 2px;
+    margin-right: 10px;
+    ;
+}
+
+
+/*  */
+

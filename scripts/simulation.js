@@ -19,10 +19,10 @@ let status = true;
 let isolationFactor; // % of people who self isolate
 let allInfected = false;
 let radius = 10;
+let easter = false;
 
 //console.log(document.getElementById('sim').clientWidth)
 //console.log(document.getElementById('sim').offsetWidth)
-
 
 //console.log(c);
 //console.log(innerWidth);
@@ -301,40 +301,81 @@ function init3() {
 ////          Sets isolation factor and Init func          ////
 ///////////////////////////////////////////////////////////////
 
-iso.addEventListener('input', (e) => {
-    isoValue = parseInt(e.target.value);
-    console.log(isoValue);
-    console.log(isoValue === 100);
+$(document).ready(function () {
+    $('input[type=radio]').click(function () {
+        console.log(this.value);
+        isoValue = parseInt(this.value);
+        console.log(isoValue);
+        console.log(isoValue === 100);
 
-    if (isoValue === 0) {
-        isolationFactor = 0;
-    } else {
-        isolationFactor = Math.floor((100 / isoValue));
-    }
-    console.log(isolationFactor);
-    status = true;
-    init1();
-    checkbox.addEventListener('change', function () {
-        if (checkbox.checked) {
+        if (isoValue === 0) {
+            isolationFactor = 0;
+        } else {
+            isolationFactor = Math.floor((100 / isoValue));
+        }
+        console.log(isolationFactor);
+        status = true;
+        init1();
+        if(isoValue===100){
+            init1();
+        }
+        checkbox.addEventListener('change', function () {
             if (isoValue === 100) {
                 status = true;
                 console.log('Checked2');
+                easter = true;
                 init3();
-            } else {
+            } else if (this.checked) {
                 // do this
                 console.log('Checked');
                 status = true;
                 init2();
+            } else {
+                // do that
+                console.log('Not checked');
+                status = true;
+                init1();
             }
-        } else {
-            // do that
-            console.log('Not checked');
-            status = true;
-            init1();
-        }
+        });
+
     });
 });
-console.log(checkbox.checked);
+
+
+// iso.addEventListener('input', (e) => {
+//     isoValue = parseInt(e.target.value);
+//     console.log(isoValue);
+//     console.log(isoValue === 100);
+
+//     if (isoValue === 0) {
+//         isolationFactor = 0;
+//     } else {
+//         isolationFactor = Math.floor((100 / isoValue));
+//     }
+//     console.log(isolationFactor);
+//     status = true;
+//     init1();
+//     checkbox.addEventListener('change', function () {
+//         if (checkbox.checked) {
+//             if (isoValue === 100) {
+//                 status = true;
+//                 console.log('Checked2');
+//                 init3();
+//             } else {
+//                 // do this
+//                 console.log('Checked');
+//                 status = true;
+//                 init2();
+//             }
+//         } else {
+//             // do that
+//             console.log('Not checked');
+//             status = true;
+//             init1();
+//         }
+//     });
+// });
+// console.log(checkbox.checked);
 
 ///////////////////////////////////////////////////////////////
 ////                    ANIMATION LOOP                     ////
@@ -348,12 +389,13 @@ function animate() {
     requestAnimationFrame(animate) // this calls animate fun over and over again
     c.clearRect(0, 0, canvas.width, canvas.height);
     //console.log(isoValue);
-    if (isoValue === 100) {
+    if (isoValue === 100 && easter) {
         sound.play();
         for (let index = 0; index < ball.length; index++) {
             ball[index].update2();
 
         }
+        document.getElementById('message').style="display:block; border:2px dashed firebrick;margin: 2%;color: indigo;text-align:center";
     } else {
         for (let index = 0; index < ball.length; index++) {
             ball[index].update(ball);
@@ -368,9 +410,8 @@ function animate() {
 function inanimate() {
     ball = [];
     c.clearRect(0, 0, canvas.width, canvas.height);
-    iso.value = ' ';
-    checkbox.checked = false;
     status = false;
+    easter = false;
     location.reload();
 
 

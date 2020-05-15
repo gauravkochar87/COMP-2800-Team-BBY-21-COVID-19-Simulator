@@ -30,8 +30,11 @@ signupForm.addEventListener('submit', (e) => {
         mainPage.style = "display:block";
         return cred.user.updateProfile({
             displayName: name
-        });
-    });
+        })
+    }).catch(err => {
+        alert("Account already exists with this email.")
+        signupForm.reset();
+    })
 });
 
 

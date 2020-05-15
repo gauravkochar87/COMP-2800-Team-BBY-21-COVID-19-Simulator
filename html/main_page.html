@@ -28,14 +28,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
         <div class="container">
-            <a id="usergreet" class="navbar-brand"  href="#"></a>
+            <a id="usergreet" class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    
+
                     <li class="nav-item loggedIn">
                         <a class="nav-link" href="main_page.html">Home</a>
                     </li>
@@ -87,6 +87,28 @@
 
         </div>
 
+        <div style = "margin-left: 1%;">
+            <form id = "addWash">
+                <span><b> Creates a document in database </b></span><br><label for="fname">Add today's hand wash count</label>
+                <input type="text" id="fname" name="handwash">
+                <input type="submit" value="Submit">
+            </form>
+            <b>Reads from database </b><Span>Your hand wash count: </Span> <span id='count'></span>
+            <button onclick="getWashCount()">Get</button>   
+            <form id = "update">
+                <span><b> Updates a field in a document in database </b></span><br><label for="fname">Update today's hand wash count</label>
+                <input type="text" id="fname" name="newwash">
+                <input type="submit" value="Submit">
+            </form>
+            <span><b>Deletes a record from databse </b></span>
+            <button id = "del">Delete</button>
+        </div>
+
+
+      
+
+
+
 
     </div>
 
@@ -120,8 +142,6 @@
     <!------------------>
     <!-- MyJavaScript -->
     <!------------------>
-    <script src="../scripts/main.js"></script>
-
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="../scripts/main.js"></script>
     <script src="../scripts/common.js"></script>

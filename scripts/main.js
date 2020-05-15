@@ -1,6 +1,3 @@
-
-
-
 //get data from database in realtime coz of onSnapshot
 // db.collection('courses').onSnapshot(snapshot => {
 //     const data = snapshot.docs;
@@ -44,3 +41,56 @@ let c = function (pos) {
 //     return false;
 // }
 
+
+
+///////////////////////////////////////////////////////////////
+////               CRUD DATABASE FUNCTIONS                 ////
+///////////////////////////////////////////////////////////////
+
+
+// reads the data from the database
+function getWashCount() {
+    db.collection('facts').doc('gaurav').get().then(snapshot => {
+            let a = snapshot.data().handwash;
+            document.getElementById('count').innerHTML = a;
+        });
+}
+
+
+// creates a new document in the collection and adds it with add function
+let washCount = document.querySelector('#addWash');
+
+washCount.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('facts').doc('gaurav').set({
+        handwash: parseInt(washCount.handwash.value)
+    })
+    washCount.handwash.value = '';
+})
+
+
+//delete the data from database
+
+let del = document.querySelector('#del');
+
+del.addEventListener('click', (e) => {
+    e.stopPropagation();
+    db.collection('facts').doc('gaurav').delete().then(() => {
+        console.log("document deleted successfully")
+    }).catch(() => {
+        console.error("error removing document");
+
+    })
+
+})
+
+//Updates the data in database
+let update = document.querySelector('#update');
+
+update.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('facts').doc('gaurav').update({
+        handwash: parseInt(update.newwash.value)
+    })
+    update.newwash.value = '';
+})

@@ -77,18 +77,42 @@
         </div>
 
         <!-- CONTROL VARIABLES -->
+      
+
         <div id="control" style="display:inline-block">
             <label class="param">Isolation %</label>
-            <input id='iso' placeholder="people staying at home" required><span
-                style="color:red;font-size: x-large;font-weight: bold;">*</span><br>
+            <!-- <input id='iso' placeholder="people staying at home" required><span
+                style="color:red;font-size: x-large;font-weight: bold;">*</span><br> -->
+            <div class="form-check-inline">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optradio" value="0">No Isolation
+                </label>
+
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optradio" value="10">10 %
+                </label>
+
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optradio" value="25">25 %
+                </label>
+
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optradio" value="50">50 %
+                </label>
+
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optradio" value="100">100 %
+                </label>
+            </div>
             <span class="param">Use mask</span>
             <label class="switch">
-                <input type="checkbox" unchecked>
+                <input type="checkbox" autocomplete="off" unchecked="unchecked">
                 <span class="slider"></span>
             </label>
             <br>
             <button id="start" type="button" class="btn btn-primary">Start</button>
             <button id="stop" type="button" class="btn btn-primary">Clear</button>
+            <h1 id ="message" style = "display: none;">YOU ARE SAFE FROM COVID-19</h1>
         </div>
 
     </div>
