@@ -1,4 +1,4 @@
 .firebaserc
 *.json
 *.rules
-/.firebase
+.firebase/
