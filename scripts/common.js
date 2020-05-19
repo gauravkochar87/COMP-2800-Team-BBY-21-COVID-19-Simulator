@@ -28,7 +28,7 @@ const setupUI = (user) => {
 ///////////////////////////////////////////////////////////////
 
 auth.onAuthStateChanged((user) => {
-    console.log(user);
+    //console.log(user);
     if (user) {
         console.log("user logged in");
         setupUI(user);
@@ -57,7 +57,7 @@ logout.addEventListener('click', (e) => {
 ///////////////////////////////////////////////////////////////
 
 auth.onAuthStateChanged((user) => {
-    console.log(user);
+    //console.log(user);
     if (user) {
         console.log("user logged in");
         document.getElementById('usergreet').innerHTML = '<span style="text-transform: capitalize">Welcome,  ' + auth.currentUser.displayName + '</span>';
