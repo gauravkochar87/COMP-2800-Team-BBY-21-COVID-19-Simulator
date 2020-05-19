@@ -14,7 +14,7 @@ const loginForm = document.querySelector('.login-form');
 
 //add event listener
 signupForm.addEventListener('submit', (e) => {
-    //e.preventDefault();
+    e.preventDefault();
 
     //get user info
     const name = signupForm['signup-name'].value;
@@ -28,6 +28,7 @@ signupForm.addEventListener('submit', (e) => {
         $('.register-form, .login-form').css('display', 'none');
         let mainPage = document.getElementById('success');
         mainPage.style = "display:block";
+        console.log("sign up successful");
         return cred.user.updateProfile({
             displayName: name
         })
