@@ -2,15 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
     <title>Simulation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
 
     <!-- Favicon Links -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="stylesheet" href="../css/simulation.css">
+
 </head>
 
 <body>
@@ -37,7 +40,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="faq.html">FAQ</a>
-                      </li>
+                    </li>
                     <li class="nav-item active loggedIn">
                         <a class="nav-link" href="simulation.html" id="signup">Simulation</a>
                     </li>
@@ -53,31 +56,28 @@
     <!-- SIMULATION SECTION -->
     <div class="grid-container">
         <canvas id="sim"> </canvas>
-        <!-- <div><span id="days">00</span><span> Days later</span></div> -->
-
-        <!-- <input id="ex13" type="text" data-slider-ticks="[0, 100, 200, 300, 400]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["0", "10%", "33%", "50%", "100%"]' /> -->
 
         <div id="img-container">
             <div>
                 <img src="../images/isolated.png" />
-                <span class="people">Isolated people</span>
+                <span class="people">Isolated</span>
             </div>
             <div>
                 <img src="../images/unprotected.png" />
-                <span class="people">Unprotected people</span>
+                <span class="people">Unprotected</span>
             </div>
             <div>
                 <img src="../images/masked.png" />
-                <span class="people">Masked people</span>
+                <span class="people">Masked</span>
             </div>
             <div>
                 <img src="../images/infected.png" />
-                <span class="people">Infected people</span>
+                <span class="people">Infected</span>
             </div>
         </div>
 
         <!-- CONTROL VARIABLES -->
-      
+
 
         <div id="control" style="display:inline-block">
             <label class="param">Isolation %</label>
@@ -89,19 +89,19 @@
                 </label>
 
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio" value="10">10 %
+                    <input type="radio" class="form-check-input" name="optradio" value="10">10 
                 </label>
 
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio" value="25">25 %
+                    <input type="radio" class="form-check-input" name="optradio" value="25">25 
                 </label>
 
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio" value="50">50 %
+                    <input type="radio" class="form-check-input" name="optradio" value="50">50 
                 </label>
 
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="optradio" value="100">100 %
+                    <input type="radio" class="form-check-input" name="optradio" value="100">100 
                 </label>
             </div>
             <span class="param">Use mask</span>
@@ -110,9 +110,9 @@
                 <span class="slider"></span>
             </label>
             <br>
-            <button id="start" type="button" class="btn btn-primary">Start</button>
-            <button id="stop" type="button" class="btn btn-primary">Clear</button>
-            <h1 id ="message" style = "display: none;">YOU ARE SAFE FROM COVID-19</h1>
+            <button id="start" type="button" class="btn btn-light">Start</button>
+            <button id="stop" type="button" class="btn btn-light">Clear</button>
+            <h1 id="message" style="display: none;">YOU ARE SAFE FROM COVID-19</h1>
         </div>
 
     </div>

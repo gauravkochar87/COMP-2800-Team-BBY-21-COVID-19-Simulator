@@ -2,7 +2,6 @@
 ////               ALL CONSTANTS DECLARATION               ////
 ///////////////////////////////////////////////////////////////
 
-const peopleCount = 100;
 const iso = document.getElementById('iso');
 const checkbox = document.querySelector('input[type="checkbox"]');
 const canvas = document.querySelector('canvas');
@@ -19,6 +18,7 @@ let status = true;
 let isolationFactor; // % of people who self isolate
 let allInfected = false;
 let radius = 10;
+let peopleCount = 100;
 let easter = false;
 
 
@@ -28,8 +28,10 @@ let easter = false;
 
 canvas.width = document.getElementById('sim').offsetWidth;
 canvas.height = document.getElementById('sim').offsetHeight;
-
-
+if (document.getElementById('sim').offsetWidth < 500) {
+    peopleCount = 50;
+    radius = 6;
+}
 
 ///////////////////////////////////////////////////////////////
 ////                  BALL OBJECT CREATION                 ////
@@ -38,15 +40,10 @@ canvas.height = document.getElementById('sim').offsetHeight;
 
 class Ball {
     constructor(x, y, radius, dx, dy, color) {
-        // this.status = true;
-        // if(dx == 0 && dy == 0){
-        //   this.status = false;
-        // }
         this.x = x;
         this.y = y;
         this.dx = dx;
         this.dy = dy;
-        this.status = true; // to check if this person is counted as infected or not
         this.radius = radius;
         this.color = '#' + color;
         if (this.dx === 0 && this.dy === 0) {
@@ -105,17 +102,17 @@ class Ball {
 
         this.x += this.dx;
         this.y += this.dy;
-
     }
+
 
     // EASTER EGG FUNCTION //
 
     update2() {
         //if (this.status) {
         if (this.y + this.radius + this.dy > canvas.height) {
-            this.dy = -this.dy; //multiply by friction if to create  gravity
+            this.dy = -this.dy;
         } else {
-            this.dy += 1; // this rate decide the velocity of the ball more faster; less slower
+            this.dy += 1;
         }
 
         if (this.x + this.radius + this.dx > canvas.width || this.x - this.radius <= 0) {
@@ -130,6 +127,7 @@ class Ball {
 
 }
 
+
 // Implementation
 
 let ball = [];;
@@ -141,13 +139,12 @@ let ball = [];;
 function init1() {
     ball = [];
     for (let i = 0; i < peopleCount; i++) {
-        //randomIntFromRange(10, 50);
-        let y = randomIntFromRange(radius, canvas.height - radius);
-        let x = randomIntFromRange(radius, canvas.width - radius);
-        let dx = Math.random() * 2 + 1; // - .5;
-        let dy = Math.random() * 2 + 1; // - .5;
+        let y = randomNum(radius, canvas.height - radius);
+        let x = randomNum(radius, canvas.width - radius);
+        let dx = Math.random() * 2 + 1;
+        let dy = Math.random() * 2 + 1;
         let color;
-        radius = 10;
+
 
         // to make 1st person infected
         if (i === 0) {
@@ -159,21 +156,22 @@ function init1() {
 
         } else {
 
-            color = 'C0C0C0'; // Math.floor(Math.random() * 16777215).toString(16);
+            color = 'C0C0C0';
         }
 
-
         // to move people based on self isolation factor
-        if (i % isolationFactor === 0 && i > 0) { //isolation factor 1 means 100% 2 means 50% and so on...
+        //isolation factor 1 means 100%, 2 means 50% and so on...
+        if (i % isolationFactor === 0 && i > 0) {
             dx = 0;
             dy = 0;
         }
 
-        if (i > 0) { //to make sure balls don't overlap
+        //to make sure balls don't overlap when being created
+        if (i > 0) {
             for (let j = 0; j < ball.length; j++) {
                 if (distance(x, y, ball[j].x, ball[j].y) - radius * 2 < 0) {
-                    y = randomIntFromRange(radius, canvas.height - radius);
-                    x = randomIntFromRange(radius, canvas.width - radius);
+                    y = randomNum(radius, canvas.height - radius);
+                    x = randomNum(radius, canvas.width - radius);
                     j = -1;
                 }
             }
@@ -192,12 +190,12 @@ function init2() {
     ball = [];
     for (let i = 0; i < peopleCount; i++) {
 
-        let y = randomIntFromRange(radius, canvas.height - radius);
-        let x = randomIntFromRange(radius, canvas.width - radius);
+        let y = randomNum(radius, canvas.height - radius);
+        let x = randomNum(radius, canvas.width - radius);
         let dx = Math.random() * 2 + 1; // - .5;
         let dy = Math.random() * 2 + 1; // - .5;
         let color;
-        radius = 10;
+
 
         // to make 1st person infected
         if (i === 0) {
@@ -220,7 +218,7 @@ function init2() {
         }
 
         //to make some blue dots which represent masks
-        let maskedNumber = randomIntFromRange(1, 10);
+        let maskedNumber = randomNum(1, 10);
         if (i % maskedNumber === 0 && i > 0) {
             color = '0000ff';
         }
@@ -228,8 +226,8 @@ function init2() {
         if (i > 0) { //to make sure balls don't overlap
             for (let j = 0; j < ball.length; j++) {
                 if (distance(x, y, ball[j].x, ball[j].y) - radius * 2 < 0) {
-                    y = randomIntFromRange(radius, canvas.height - radius);
-                    x = randomIntFromRange(radius, canvas.width - radius);
+                    y = randomNum(radius, canvas.height - radius);
+                    x = randomNum(radius, canvas.width - radius);
                     j = -1;
                 }
             }
@@ -249,12 +247,16 @@ function init3() {
     ball = [];
 
     for (let i = 0; i < 80; i++) {
-        radius = randomIntFromRange(10, 30);
-        let y = randomIntFromRange(radius, canvas.height - radius);
-        let x = randomIntFromRange(radius, canvas.width - radius);
+        radius = randomNum(10, 30);
+        if (document.getElementById('sim').offsetWidth < 500) {
+
+            radius = randomNum(5, 15);
+        }
+        let y = randomNum(radius, canvas.height - radius);
+        let x = randomNum(radius, canvas.width - radius);
         let color = Math.floor(Math.random() * 16777215).toString(16);
-        let dx = randomIntFromRange(-3, 3);
-        let dy = randomIntFromRange(1, 3);
+        let dx = randomNum(-3, 3);
+        let dy = randomNum(1, 3);
         ball.push(new Ball(x, y, radius, dx, dy, color));
     }
     easter = true;
@@ -275,12 +277,12 @@ $(document).ready(function () {
         if (isoValue === 0) {
             isolationFactor = 0;
         } else {
-            isolationFactor = Math.floor((100 / isoValue));
+            isolationFactor = (100 / isoValue);
         }
         console.log(isolationFactor);
         status = true;
         init1();
-        if(isoValue===100){
+        if (isoValue === 100) {
             init1();
         }
         checkbox.addEventListener('change', function () {
@@ -324,13 +326,14 @@ function animate() {
             ball[index].update2();
 
         }
-        document.getElementById('message').style="display:block; border:2px dashed firebrick;margin: 2%;color: indigo;text-align:center";
+        document.getElementById('message').style = "display:block; border:2px dashed yellow;margin: 2%;color: wheat;text-align:center;font-size:2em";
     } else {
         for (let index = 0; index < ball.length; index++) {
             ball[index].update(ball);
 
         }
     }
+
 }
 
 ///////////////////////////////////////////////////////////////
@@ -350,12 +353,8 @@ function inanimate() {
 ////                  UTILITY FUNCTIONS                    ////
 ///////////////////////////////////////////////////////////////
 
-function randomIntFromRange(min, max) {
+function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-function randomColor(colors) {
-    return colors[Math.floor(Math.random() * colors.length)]
 }
 
 function distance(x1, y1, x2, y2) {
@@ -367,9 +366,8 @@ function distance(x1, y1, x2, y2) {
 
 
 ///////////////////////////////////////////////////////////////
-////                EXECUTING ANIMATIONS                    ////
+////                EXECUTING ANIMATIONS                   ////
 ///////////////////////////////////////////////////////////////
 
 document.getElementById('start').onclick = animate;
 document.getElementById('stop').onclick = inanimate;
-

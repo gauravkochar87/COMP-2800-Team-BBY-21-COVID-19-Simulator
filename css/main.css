@@ -2,13 +2,16 @@
     height: 90%;
     top: 3.5em;
     bottom: 10%;
-  }
-  html, body {
+}
+
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-  }
-  .navbar{
+}
+
+.navbar {
     height: 3.5em;
     margin: 0;
     padding: 0;
@@ -35,16 +38,16 @@
     left: 0;
     right: 50%;
     bottom: 0;
-    
+
     -moz-transition: right 0.5s ease;
     transition: right 0.5s ease;
 }
 
 input[type=checkbox] {
-   display: none;
+    display: none;
 }
 
-input:checked ~ .portfolio { 
+input:checked~.portfolio {
     right: 0;
 }
 
@@ -60,10 +63,15 @@ label {
     right: 150px;
     background-color: white;
 
-    
+
     /* -moz-transition: right 0.5s ease;
     transition: right 0.5s ease; */
 }
 
 
-
+#board {
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1%;
+}

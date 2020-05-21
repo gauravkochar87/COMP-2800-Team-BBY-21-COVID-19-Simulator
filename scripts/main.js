@@ -1,3 +1,4 @@
+
 ///////////////////////////////////////////////////////////////
 ////          Get User Location with Google API            ////
 ///////////////////////////////////////////////////////////////
@@ -18,7 +19,8 @@ let c = function (pos) {
 
 
 {
-    /* // document.querySelector("label").onclick = function () { */ }
+    /* // document.querySelector("label").onclick = function () { */
+}
 window.onload = function () {
     var Points = [];
     var chart1 = new CanvasJS.Chart("chartContainer1", {
@@ -243,24 +245,50 @@ window.onload = function () {
 
 
 // reads the data from the database
+
 function getWashCount() {
-    db.collection('facts').doc('gaurav').get().then(snapshot => {
-        let a = snapshot.data().handwash;
-        document.getElementById('count').innerHTML = a;
+    auth.onAuthStateChanged(function (user) {
+
+        let userRef = db.collection('facts').doc(user.uid);
+
+        userRef.get().then(snapshot => {
+                let a = snapshot.data().handwashCount;
+                document.getElementById('count').innerHTML = "<b>" + a + "</b>";
+            })
+            .catch(function (error) {
+                alert("No record found");
+            });
     });
 }
 
+// creates a new document in the collection 
 
-// creates a new document in the collection and adds it with add function
 let washCount = document.querySelector('#addWash');
 
 washCount.addEventListener('submit', (e) => {
     e.preventDefault();
-    db.collection('facts').doc('gaurav').set({
-        handwash: parseInt(washCount.handwash.value)
+
+    auth.onAuthStateChanged(function (user) {
+
+        let userRef = db.collection('facts').doc(user.uid);
+
+        // Sets the handwash count
+        userRef.set({
+                Name: auth.currentUser.displayName,
+                handwashCount: parseInt(washCount.handwash.value),
+                date: new Date()
+            })
+            .then(function () {
+                alert("hand wash count added to the database");
+
+            })
+            .catch(function (error) {
+                console.error("Error writing document: ", error);
+            });
+        washCount.handwash.value = '';
     })
-    washCount.handwash.value = '';
-})
+
+});
 
 
 //delete the data from database
@@ -269,29 +297,45 @@ let del = document.querySelector('#del');
 
 del.addEventListener('click', (e) => {
     e.stopPropagation();
-    db.collection('facts').doc('gaurav').delete().then(() => {
-        console.log("document deleted successfully")
-    }).catch(() => {
-        console.error("error removing document");
 
-    })
+    auth.onAuthStateChanged(function (user) {
 
-})
+        let userRef = db.collection('facts').doc(user.uid);
 
-//Updates the data in database
-let update = document.querySelector('#update');
+        userRef.delete().then(() => {
+            alert("document deleted successfully")
+        }).catch(() => {
+            console.error("error removing document");
 
-update.addEventListener('submit', (e) => {
-    e.preventDefault();
-    db.collection('facts').doc('gaurav').update({
-        handwash: parseInt(update.newwash.value)
-    })
-    update.newwash.value = '';
+        })
+        document.getElementById('count').innerHTML = "";
+    });
+
 })
 
 
 
+
 ///////////////////////////////////////////////////////////////
-////                    MAP FUNCTION                       ////
+////                LEADERBOARD FUNCTION                   ////
 ///////////////////////////////////////////////////////////////
 
+function leaderBoard() {
+    // Clear current scores.
+    document.getElementById("leaderboard").innerHTML = "<caption style='caption-side:top;text-align: center;'> LEADERBOARD </caption><thead class='thead-light'><tr><th>Rank</th><th>Name</th><th>Count</th></tr>";
+    let i = 1;
+    // Get the top 5 scores.
+    db.collection("facts").orderBy("handwashCount", "desc").limit(5).get().then((snapshot) => {
+        console.log(snapshot);
+        snapshot.forEach((doc) => {
+            document.getElementById("leaderboard").innerHTML += "<tr>" +
+                "<td>" + "#" + i + "</td>" +
+                "<td>" + doc.data().Name + "</td>" +
+                "<td>" + doc.data().handwashCount + "</td>"
+            "</tr>";
+            i++;
+        })
+    })
+}
+
+leaderBoard();

@@ -65,30 +65,39 @@
 			<div id="chartContainer3" style="height: 350px; width: 100%;"></div>
 
 			<!--  DATABSE FORM FOR CRUD-->
-			
+
 			<!-- </h2> -->
 		</div>
 
 		<div class="portfolio">
 			<div id="map"></div>
 			<div id="ff" style="margin-left: 1%;margin-top: 10%;">
+				<br>
 				<form id="addWash">
-					<span><b> Creates a document in database </b></span><br>
+					<!-- <span><b> Creates a document in database </b></span><br> -->
 					<span>Add today's hand wash count </span>
 					<input type="text" id="fname" name="handwash">
+					<!-- <input type="number"> -->
 					<input type="submit" value="Submit">
 				</form>
-				<b>Reads from database </b><Span>Your hand wash count: </Span> <span id='count'></span>
+				<Span>Your hand wash count: </Span> <span id='count'></span>
 				<button onclick="getWashCount()">Get</button>
-				<form id="update">
+				<!-- <form id="update">
 					<span><b> Updates a field in a document in database </b></span><br><span>Update hand wash
 						count</span>
 					<input type="text" id="fname" name="newwash">
 					<input type="submit" value="Submit">
-				</form>
-				<span><b>Deletes a record from databse </b></span>
+				</form> -->
+				<br><span>Delete your hand wash count </span>
 				<button id="del">Delete</button>
+				<p id = "board">TODAY'S TOP 5 IN HAND WASHING</p>
 			</div>
+
+			<!-- LEADERBOARD -->
+			
+			<table class="table" id="leaderboard">
+			
+			</table>
 		</div>
 
 	</div>
@@ -310,20 +319,20 @@
 			chart3.render();
 		}
 	</script>
-<script>
-	var map;
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 49.283832198,
-            lng: -123.119332856
-        },
-        zoom: 15
-      
-  
-    });
-}
+	<script>
+		var map;
+
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {
+					lat: 49.283832198,
+					lng: -123.119332856
+				},
+				zoom: 15
+			});
+		}
+
 	</script>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
