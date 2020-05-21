@@ -8,19 +8,9 @@ $(document).ready(function()
     // var date = today.getDate();
     // var dateTime = date + "T" + time;
 
-    // firebase?
-    // let config = require("../.firebase/env.json");
-
-    // if(Object.keys(functions.config()).length)
-    // {
-    //     config = functions.config();
-    // }
-
     // API info
     const apiKey = "a7f71f04dd304d87b2a1d2ac8d4ab770";
-    // const apiKey = config.servic.newsapi_key;
     const url = "https://newsapi.org/v2/top-headlines?country=ca&category=health&apiKey=" + apiKey;
-    // const url = "https://newsapi.org/v2/top-headlines?country=ca&category=health";
 
     // Request
     let header = new Headers();
