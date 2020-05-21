@@ -112,7 +112,7 @@
 				</table>
 	
 			</section>
-			
+			<!-- <section id="thing"></section> -->
 
 		
 
@@ -274,9 +274,11 @@
 
 			var chart3 = new CanvasJS.Chart("chartContainer3", {
 				animationEnabled: true,
-				theme: "light2", // "light1", "light2", "dark1", "dark2"
+				theme: "light2",
 				title: {
-					text: "Distribution by Age"
+					text: "Distribution by Age",
+					fontFamily: "arial black",
+					fontColor: "#695A42"
 				},
 				axisY: {
 
@@ -345,7 +347,7 @@ function initMap() {
             lat: 53.826597,
             lng:  -124.519043
         },
-        zoom: 6
+        zoom: 5.5
 
 		
     });
