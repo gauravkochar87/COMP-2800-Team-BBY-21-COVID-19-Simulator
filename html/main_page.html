@@ -16,8 +16,9 @@
 </head>
 
 <body>
-
+<div id="container">
 	<!-- Navbar-->
+	<section id="nav">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
 		<div class="container">
 			<a id="usergreet" class="navbar-brand" href="#"></a>
@@ -49,29 +50,38 @@
 			</div>
 		</div>
 	</nav>
-
+</section>
 
 
 	<!-- Sidebar-->
 	<!-- <div class="main-wrap">
 		<input id="slide-sidebar" type="checkbox" role="button" />
 		<label for="slide-sidebar"><span id="w"></span></label> -->
-		<div class="sidebar">
-
+		<!-- <div class="sidebar"> -->
+			
 			<!-- <h2>Charts -->
-
-			<div id="chartContainer1" style="height: 350px; width: 100%;"></div>
-			<div id="chartContainer2" style="height: 350px; width: 100%;"></div>
-			<div id="chartContainer3" style="height: 350px; width: 100%;"></div>
-
+		
 			<!--  DATABSE FORM FOR CRUD-->
 			
 			<!-- </h2> -->
-		</div>
 
-		<div class="portfolio">
-			<div id="map"></div>
-			<div id="ff" style="margin-left: 1%;margin-top: 10%;">
+
+
+			<section id="map"></section>
+
+		<section id="charts1">
+			<div id="chartContainer1" ></div>
+		</section>
+		<section id="charts2">
+			<div id="chartContainer2"></div>
+		</section>
+		<section id="charts3">
+			<div id="chartContainer3"></div>
+		</section>
+			<!-- <div id="chartContainer2" style="height: 350px; width: 50%;"></div>
+			<div id="chartContainer3" style="height: 350px; width: 50%;"></div> -->
+	
+			<section id="base" >
 				<br>
 				<form id="addWash">
 					<!-- <span><b> Creates a document in database </b></span><br> -->
@@ -90,19 +100,23 @@
 				</form> -->
 				<br><span>Delete your hand wash count </span>
 				<button id="del">Delete</button>
+			</section>
+		<section id="bb">
 				<p id = "board">TODAY'S TOP 5 IN HAND WASHING</p>
-			</div>
-
+	
+			</section>
 			<!-- LEADERBOARD -->
+			<section id="table">
+				<table class="table" id="leaderboard">
 			
-			<table class="table" id="leaderboard">
+				</table>
+	
+			</section>
 			
-			</table>
+
+		
+
 		</div>
-
-	</div>
-
-
 
 	<!-- Charts-->
 
