@@ -39,7 +39,10 @@ body
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding-top: 32px;
+    padding: 32px 5rem 32px 5rem;
+    /* padding-top: 32px; */
+    /* padding-right: 5rem; */
+    /* padding-left: 5rem; */
     /* margin: 2vw 3rem 2vw 3rem; */
     border: 1px solid black;
     box-sizing: border-box;
