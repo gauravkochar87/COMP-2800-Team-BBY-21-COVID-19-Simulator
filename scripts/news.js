@@ -11,17 +11,18 @@ $(document).ready(function()
     // API info
     const apiKey = "a7f71f04dd304d87b2a1d2ac8d4ab770";
     const url = "https://newsapi.org/v2/top-headlines?country=ca&category=health&apiKey=" + apiKey;
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
     // Request
     let header = new Headers();
     // header.append("Accept", "application/json");
     header.append("X-Api-Key", "application/json");
 
-    let req = new Request(url, 
+    let req = new Request(proxyurl + url, 
     {
         method: "GET",
         headers: header,
-        mode: "no-cors"
+        mode: "cors"
     });
 
     // News Article Container
