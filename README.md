@@ -6,6 +6,7 @@ of the most common questions about this virus.
 * [Getting Started](#instructions)
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [API](#api)
 * [Features](#features)
 * [Content](#content)
 * [Team](#team)
@@ -95,8 +96,8 @@ List of features:
 - charts
 - FAQ
 - Login and signup implementation
--
--
+- Daily Hand Wash Count  
+
 
 
 ## Content

@@ -68,7 +68,7 @@ class Ball {
 
     }
 
-    update(ball) {
+    check1(ball) {
 
         this.create()
         // to check collision between all balls
@@ -83,8 +83,6 @@ class Ball {
                     if (this.color !== '#0000ff') {
                         this.color = '#ff0000';
                         this.status = false;
-                        // this.mx = 1;
-                        // this.my = 1;
                     }
                 }
             }
@@ -107,7 +105,7 @@ class Ball {
 
     // EASTER EGG FUNCTION //
 
-    update2() {
+    check2() {
         //if (this.status) {
         if (this.y + this.radius + this.my > myCanvas.height) {
             this.my = -this.my;
@@ -323,13 +321,13 @@ function appear() {
     if (isoValue === 100 && easter) {
         sound.play();
         for (let index = 0; index < ball.length; index++) {
-            ball[index].update2();
+            ball[index].check2();
 
         }
         document.getElementById('message').style = "display:block; border:2px dashed yellow;margin: 2%;color: wheat;text-align:center;font-size:2em";
     } else {
         for (let index = 0; index < ball.length; index++) {
-            ball[index].update(ball);
+            ball[index].check1(ball);
 
         }
     }
