@@ -8,10 +8,31 @@ $(document).ready(function()
     // var date = today.getDate();
     // var dateTime = date + "T" + time;
 
-    // API info
-    const apiKey = "a7f71f04dd304d87b2a1d2ac8d4ab770"
-    const url = "http://newsapi.org/v2/top-headlines?country=ca&category=health&apiKey=" + apiKey;
+    // firebase?
+    // let config = require("../.firebase/env.json");
 
+    // if(Object.keys(functions.config()).length)
+    // {
+    //     config = functions.config();
+    // }
+
+    // API info
+    const apiKey = "a7f71f04dd304d87b2a1d2ac8d4ab770";
+    // const apiKey = config.servic.newsapi_key;
+    const url = "https://newsapi.org/v2/top-headlines?country=ca&category=health&apiKey=" + apiKey;
+    // const url = "https://newsapi.org/v2/top-headlines?country=ca&category=health";
+
+    // Request
+    let header = new Headers();
+    // header.append("Accept", "application/json");
+    header.append("X-Api-Key", "application/json");
+
+    let req = new Request(url, 
+    {
+        method: "GET",
+        headers: header,
+        mode: "cors"
+    });
 
     // News Article Container
     const newsList = document.querySelector(".news-articles");
@@ -74,7 +95,7 @@ $(document).ready(function()
     }
 
     // Fetches 
-    fetch(url).then((res) =>
+    fetch(req).then((res) =>
     {
         return res.json()
     })
@@ -82,25 +103,25 @@ $(document).ready(function()
     {
         console.log(data)
         data.articles.forEach(article =>
-            {
-                // grid for news article
-                let grid = createGrid();
+        {
+            // grid for news article
+            let grid = createGrid();
 
-                // news title
-                let titleText = article.title;
-                let url = article.url;
-                let title = createTitle(titleText, url);
+            // news title
+            let titleText = article.title;
+            let url = article.url;
+            let title = createTitle(titleText, url);
                 
-                // news source
-                let sourceText = article.source.name;
-                let source = createSource(sourceText);
+            // news source
+            let sourceText = article.source.name;
+            let source = createSource(sourceText);
 
-                // news description
-                let descText = article.description;
-                let desc = createDesc(descText);
+            // news description
+            let descText = article.description;
+            let desc = createDesc(descText);
 
-                appendNews(grid, title, source, desc);
-            })
+            appendNews(grid, title, source, desc);
+        })
     })
     .catch(error =>
     {
