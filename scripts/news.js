@@ -21,7 +21,7 @@ $(document).ready(function()
     {
         method: "GET",
         headers: header,
-        mode: "cors"
+        mode: "np-cors"
     });
 
     // News Article Container
