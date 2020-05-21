@@ -24,7 +24,7 @@ html,body{
     font-family: Arial, Helvetica, sans-serif;
     display: grid;
    /* grid-template-columns: auto(2,1fr); */
-    grid-template-rows: 3.5em 1.5fr 1.5fr 1.5fr 0.3fr 1fr 1fr; 
+    grid-template-rows: 3.5em 2fr 2fr 2fr 0.3fr 1fr 1fr; 
     /* grid-gap: 10px 10px; */
     grid-template-areas: 
     'nav nav'
@@ -47,7 +47,7 @@ html,body{
  font-family: Arial, Helvetica, sans-serif;
  display: grid;
 /* grid-template-columns: auto(2,1fr); */
- grid-template-rows: 3.5em 4fr 1.5fr 1.5fr 1.5fr 0.3fr 1fr 1fr; 
+ grid-template-rows: 3.5em 4fr 2fr 2fr 2fr 0.3fr 1fr 1fr; 
  /* grid-gap: 10px 10px; */
  grid-template-areas: 
  'nav'
