@@ -105,15 +105,16 @@ Organization and structure of files:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file
-├── login.html               # login HTML file, contains logic for user authentication
-├── main.html                # After logged in, play the game on this page
-├── stats.html               # After logged in, see statistics here
-├── leaderboard.html         # After logged in, see the leaderboard here
-└── gameinfo.html            # See game rules here         
-└── 404.html                 # Page to redirect to when there is an error     
-└── README.md
-
+├── database.rules.json      # 
+├── debug.log                # 
+├── firebase.json            # 
+├── firestore.indexes.json   # 
+├── firestore.rules          # 
+└── geo.json                 #          
+└── index.html               # Landing page of the app 
+└── PBage.json               #      
+└── README.md                #
+          
 Contains the following subfolders:
 ├── images                   # Folder for images
     /aboutus-banner.jpg      # Image for aboutus page background
@@ -142,6 +143,7 @@ Contains the following subfolders:
 	/charts.css              # styling sheet for charts page
 	/faq.css                 # styling sheet for FAQ page
 	/index.css               # styling sheet for index page
+	/landing.css             # styling sheet for landing page
 	/main.css                # styling sheet for main page
 	/news.css                # styling sheet for news page
 	/simulation.css          # styling sheet for simulation page
@@ -155,11 +157,11 @@ Contains the following subfolders:
     /jquery-3.5.0.js         # jquery library 
     /main.js                 # JS functions for main page
 	/news.js                 # JS functions for main page
-	/pandemic.js             # JS functions for pandemic page
 	/simulation.js           # JS functions for simulation page
 ├── html                     # Folder for styles
     /aboutus.html            # Html content for aboutus page
 	/faq.html                # Html content for FAQ page
+	/login.html              # Html content for LOGIN/SIGNUP page
 	/main_page.html          # Html content for main page
 	/news.html               # Html content for news page
 	/simulation.html         # Html content for simulation page
