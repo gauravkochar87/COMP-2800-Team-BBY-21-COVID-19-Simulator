@@ -36,6 +36,15 @@ Technologies that were used for this project:
 -
 
 
+## APIs
+APIs that were used in this project:
+
+- News API (newsapi.org)
+- Firebase API
+- Google Maps API
+- 
+
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -163,7 +172,7 @@ Created by  BCIT Burnaby TEAM 21(TECH MATES)
 Members:
 - Gaurav Kochar
 - Winston Zhao
-- Jonnathon Lu
+- Jonathon Lu
 - Jeffrey To 
  
 ## Inspiration
