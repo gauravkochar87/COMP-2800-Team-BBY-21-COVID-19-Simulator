@@ -33,7 +33,7 @@ Technologies that were used for this project:
 - JavaScript
 - Bootstrap
 - JQuery
-- 
+- Geojson
 -
 
 
@@ -43,7 +43,7 @@ APIs that were used in this project:
 - News API (newsapi.org)
 - Firebase API
 - Google Maps API
-- 
+- CanvasJS API
 
 
 ## Getting Started
@@ -96,8 +96,8 @@ List of features:
 - charts
 - FAQ
 - Login and signup implementation
+- Hover on map to show info window
 - Daily Hand Wash Count  
-
 
 
 ## Content
