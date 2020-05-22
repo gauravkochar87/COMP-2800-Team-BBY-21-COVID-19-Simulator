@@ -13,87 +13,112 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- Favicon Links -->
+	<link rel="icon" type="image/png" href="../images/favicon.png">
 </head>
 
 <body>
+	<div id="container">
+		<!-- Navbar-->
+		<section id="nav">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+				<div class="container">
+					<a id="usergreet" class="navbar-brand" href="../index.html"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+						aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item active loggedIn">
+								<a class="nav-link" href="main_page.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="news.html">News</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="aboutus.html">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="faq.html">FAQ</a>
+							</li>
+							<li class="nav-item loggedIn">
+								<a class="nav-link" href="simulation.html" id="signup">Simulation</a>
+							</li>
+							<li class="nav-item loggedIn">
+								<a class="nav-link" href="#" id="logout">Log Out</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</section>
 
-	<!-- Navbar-->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
-		<div class="container">
-			<a id="usergreet" class="navbar-brand" href="#"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active loggedIn">
-						<a class="nav-link" href="main_page.html">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="news.html">News</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="aboutus.html">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="faq.html">FAQ</a>
-					</li>
-					<li class="nav-item loggedIn">
-						<a class="nav-link" href="simulation.html" id="signup">Simulation</a>
-					</li>
-					<li class="nav-item loggedIn">
-						<a class="nav-link" href="#" id="logout">Log Out</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
 
-
-
-	<!-- Sidebar-->
-	<div class="main-wrap">
+		<!-- Sidebar-->
+		<!-- <div class="main-wrap">
 		<input id="slide-sidebar" type="checkbox" role="button" />
-		<label for="slide-sidebar"><span id="w"></span></label>
-		<div class="sidebar">
+		<label for="slide-sidebar"><span id="w"></span></label> -->
+		<!-- <div class="sidebar"> -->
 
-			<!-- <h2>Charts -->
+		<!-- <h2>Charts -->
 
-			<div id="chartContainer1" style="height: 350px; width: 100%;"></div>
-			<div id="chartContainer2" style="height: 350px; width: 100%;"></div>
-			<div id="chartContainer3" style="height: 350px; width: 100%;"></div>
+		<!--  DATABSE FORM FOR CRUD-->
 
-			<!--  DATABSE FORM FOR CRUD-->
-			
-			<!-- </h2> -->
-		</div>
+		<!-- </h2> -->
 
-		<div class="portfolio">
-			<div id="map"></div>
-			<div id="ff" style="margin-left: 1%;margin-top: 10%;">
-				<form id="addWash">
-					<span><b> Creates a document in database </b></span><br>
-					<span>Add today's hand wash count </span>
-					<input type="text" id="fname" name="handwash">
-					<input type="submit" value="Submit">
-				</form>
-				<b>Reads from database </b><Span>Your hand wash count: </Span> <span id='count'></span>
-				<button onclick="getWashCount()">Get</button>
-				<form id="update">
+
+
+		<section id="map"></section>
+
+		<section id="charts1">
+			<div id="chartContainer1"></div>
+		</section>
+		<section id="charts2">
+			<div id="chartContainer2"></div>
+		</section>
+		<section id="charts3">
+			<div id="chartContainer3"></div>
+		</section>
+		<!-- <div id="chartContainer2" style="height: 350px; width: 50%;"></div>
+			<div id="chartContainer3" style="height: 350px; width: 50%;"></div> -->
+
+		<section id="base">
+			<br>
+			<form id="addWash">
+				<!-- <span><b> Creates a document in database </b></span><br> -->
+				<span>Add today's hand wash count </span>
+				<input type="text" id="fname" name="handwash">
+				<!-- <input type="number"> -->
+				<input type="submit" value="Submit">
+			</form>
+			<Span>Your hand wash count: </Span> <span id='count'></span>
+			<button onclick="getWashCount()">Get</button>
+			<!-- <form id="update">
 					<span><b> Updates a field in a document in database </b></span><br><span>Update hand wash
 						count</span>
 					<input type="text" id="fname" name="newwash">
 					<input type="submit" value="Submit">
-				</form>
-				<span><b>Deletes a record from databse </b></span>
-				<button id="del">Delete</button>
-			</div>
-		</div>
+				</form> -->
+			<br><span>Delete your hand wash count </span>
+			<button id="del">Delete</button>
+		</section>
+		<section id="bb">
+			<p id="board">TODAY'S TOP 5 IN HAND WASHING</p>
+
+		</section>
+		<!-- LEADERBOARD -->
+		<section id="table">
+			<table class="table" id="leaderboard">
+
+			</table>
+
+		</section>
+		<!-- <section id="thing"></section> -->
+
+
 
 	</div>
-
-
 
 	<!-- Charts-->
 
@@ -251,9 +276,11 @@
 
 			var chart3 = new CanvasJS.Chart("chartContainer3", {
 				animationEnabled: true,
-				theme: "light2", // "light1", "light2", "dark1", "dark2"
+				theme: "light2",
 				title: {
-					text: "Distribution by Age"
+					text: "Distribution by Age",
+					fontFamily: "arial black",
+					fontColor: "#695A42"
 				},
 				axisY: {
 
@@ -310,18 +337,254 @@
 			chart3.render();
 		}
 	</script>
-<script>
-	var map;
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: 49.283832198,
-            lng: -123.119332856
-        },
-        zoom: 15
-    });
-}
+	<!-- initial map -->
+	<script>
+		var map;
+
+		function initMap() {
+
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {
+					lat: 53.826597,
+					lng: -124.519043
+				},
+				zoom: 5.5
+
+
+			});
+			// set data layer
+			$.getJSON("../geo.json", addlayer);
+
+			function addlayer(data) {
+				map.data.addGeoJson(data);
+
+				console.log(data.features[1].properties.HR_UID);
+				// set region color
+				map.data.setStyle(function (feature) {
+					var id = feature.getProperty('HR_UID');
+					if (id > 5950 && 5954) {
+						color = "green"
+					} else if (id > 5920 && id < 5924) {
+						color = "red"
+					} else if (id == 5932 || id == 5931) {
+						color = "red"
+					} else if (id > 5940 && id < 5944) {
+						color = "blue"
+					} else if (id == 5933) {
+						color = " purple"
+					} else {
+						color = "black"
+					}
+					return {
+						strokeColor: color,
+						fillColor: color,
+						strokeWeight: 0.1,
+						fillOpacity: 0.6
+					};
+				});
+
+				// 	map.data.setStyle(function(feature) {
+				//     var ascii = feature.getProperty('HR_UID');
+				//     var color = ascii > 5920 && ascii < 5924 ? 'red' : 'blue';
+				//     return {
+				//       fillColor: color,
+				//       strokeWeight: 1
+				//     };
+				// });
+				// 	var featureStyle = {
+				// 		clickable: true,
+				// 		fillColor: 'blue',
+				//     strokeWeight: 1
+				// }
+				// map.data.setStyle(function(feature) {
+				//   var color = 'blue';
+				//   var tem;
+				//   for (var index = 0; index < 16; index++){
+				// 	if (data.features[index].properties.HR_UID == 5922) {
+				//     color = feature[index].getProperty('color');
+				// 	tem = data.features[index];
+				//   }
+				//   return ({
+				//     // tem.color = color,
+				//     strokeColor: color,
+				//     strokeWeight: 2
+				//   });
+				//   }
+
+				//   });
+
+				// let SD_NAME;
+				// for (var index = 0; index < 16; index++){
+				// 	SD_NAME = data.features[index].properties.HR_UID;
+				// 	console.log(SD_NAME);
+				// 	if (SD_NAME == 5941) {
+				// 		map.data.setStyle({
+				// 			fillColor: "blue"
+				// 		})
+
+				//   }
+
+
+				// }
+				//   map.data.setStyle(function(feature) {
+				//   var color = "red";
+
+
+
+				//   return {
+				//     fillColor: color,
+				//     strokeWeight: 1
+				//   }
+				// });
+
+				// map.data.setStyle(featureStyle);
+				// data.features[1].setStyle(featureStyle);
+			}
+
+			// Add Info window
+
+
+
+
+			// var contentString = '<div id="content">'+
+			//   '<div id="siteNotice">'+
+			//   '</div>'+
+			//   '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+			//   '<div id="bodyContent">'+
+			//   '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+			//   'sandstone rock formation in the southern part of the '+
+			//   'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+			//   'south west of the nearest large town, Alice Springs; 450&#160;km '+
+			//   '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+			//   'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+			//   'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+			//   'Aboriginal people of the area. It has many springs, waterholes, '+
+			//   'rock caves and ancient paintings. Uluru is listed as a World '+
+			//   'Heritage Site.</p>'+
+			//   '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+			//   'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+			//   '(last visited June 22, 2009).</p>'+
+			//   '</div>'+
+			//   '</div>';
+			var north =
+				"<h3>Northern</h3>" +
+				"<h5>Total case: 57</h5>" +
+				"<h5>Death : 0</h5>" +
+				"<h5>Recovered : 51"
+			var northInfo = new google.maps.InfoWindow({
+				content: north
+			});
+			var co = {
+				lat: 56.072035,
+				lng: -126.540527
+			};
+			var northMarker = new google.maps.Marker({
+				position: co,
+				map: map,
+			});
+			northMarker.addListener('click', function () {
+				northInfo.open(map, northMarker);
+			});
+
+
+
+			var interior =
+				"<h3>Interior</h3>" +
+				"<h5>Total case: 180</h5>" +
+				"<h5>Death : 0</h5>" +
+				"<h5>Recovered : 175"
+			var interiorInfo = new google.maps.InfoWindow({
+				content: interior
+			});
+			var co = {
+				lat: 50.415519,
+				lng: -118.850098
+			};
+			var interiorMarker = new google.maps.Marker({
+				position: co,
+				map: map,
+			});
+			interiorMarker.addListener('click', function () {
+				interiorInfo.open(map, interiorMarker);
+			});
+
+
+
+
+			var coastal =
+				"<h3>Vancouver Coastal</h3>" +
+				"<h5>Total case: 874</h5>" +
+				"<h5>Death : 80</h5>" +
+				"<h5>Recovered : 681"
+			var coastalInfo = new google.maps.InfoWindow({
+				content: coastal
+			});
+			var co = {
+				lat: 52.234528,
+				lng: -126.705322
+			};
+			var coastalMarker = new google.maps.Marker({
+				position: co,
+				map: map,
+			});
+			coastalMarker.addListener('click', function () {
+				coastalInfo.open(map, coastalMarker);
+			});
+
+
+
+
+
+			var island =
+				"<h3>Vancouver Island</h3>" +
+				"<h5>Total case: 125</h5>" +
+				"<h5>Death : 5</h5>" +
+				"<h5>Recovered : 115"
+			var islandInfo = new google.maps.InfoWindow({
+				content: island
+			});
+			var co = {
+				lat: 50.190968,
+				lng: -125.705566
+			};
+			var islandMarker = new google.maps.Marker({
+				position: co,
+				map: map,
+			});
+			islandMarker.addListener('click', function () {
+				islandInfo.open(map, islandMarker);
+			});
+
+
+
+			var fraser =
+				"<h3>Fraser</h3>" +
+				"<h5>Total case: 1124</h5>" +
+				"<h5>Death : 44</h5>" +
+				"<h5>Recovered : 810"
+			var fraserInfo = new google.maps.InfoWindow({
+				content: fraser
+			});
+			var co = {
+				lat: 49.310799,
+				lng: -122.003174
+			};
+			var fraserMarker = new google.maps.Marker({
+				position: co,
+				map: map,
+			});
+			fraserMarker.addListener('click', function () {
+				fraserInfo.open(map, fraserMarker);
+			});
+
+
+
+
+
+
+
+		}
 	</script>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -347,7 +610,7 @@ function initMap() {
 	<script src="../scripts/firebaseapi.js"> </script>
 
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-	<script src="../scripts/Pandemic.js"></script>
+	<!-- <script src="../scripts/Pandemic.js"></script> -->
 	<script src="../scripts/main.js"></script>
 	<script src="../scripts/common.js"></script>
 

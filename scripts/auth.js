@@ -53,7 +53,7 @@ loginForm.addEventListener('submit', (e) => {
 
     auth.signInWithEmailAndPassword(email, pswd).then(cred => {
         loginForm.reset();
-        window.location = 'html/main_page.html';
+        window.location = 'main_page.html';
     }).catch(err => {
         alert("Invalid user name or password. Please try again");
         loginForm.reset();

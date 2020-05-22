@@ -91,7 +91,6 @@ body
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
 }
 
 #symptoms h1
@@ -202,7 +201,6 @@ body
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
 }
 
 #isolation h1
@@ -234,6 +232,56 @@ body
   
 }
 
+/* Footer */
+#footer
+{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    background-color: #505168;
+    color: white;
+}
+
+.footer-title
+{
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#social a
+{
+    align-self: center;
+    text-align: center;
+}
+
+#contact-us
+{
+    display: none;
+}
+
+#about
+{
+    display: none;
+}
+
+/* Copyright */
+#copyright
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #27233A;
+}
+
+#copyright p
+{
+    text-align: center;
+    color: white;
+    font-size: 10pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* Responsive layout - when the screen is wider than 1024px */
 @media screen and (min-width: 1025px)
 {
@@ -243,6 +291,25 @@ body
         justify-content: space-between;
         margin-left: 10vw;
         margin-right: 10vw;
+    }
+
+    /* Footer */
+    #footer
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items: center;
+    }
+
+    #contact-us
+    {
+        display: block;
+    }
+
+    #about
+    {
+        display: block; 
     }
 }
 
