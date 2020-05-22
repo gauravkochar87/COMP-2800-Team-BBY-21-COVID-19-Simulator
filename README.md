@@ -43,7 +43,7 @@ APIs that were used in this project:
 - News API (newsapi.org)
 - Firebase API
 - Google Maps API
-- CanvasJS API
+
 
 
 ## Getting Started
@@ -68,24 +68,29 @@ These instructions will get you a copy of the project up and running on your loc
 		STEP 2:> you must create a feature branch of your own from dev branch before starting to contribute:
 				
 	  			 git checkout -b firstname_lastname_featurename  dev
-		
-		STEP 3:> Begin coding 
+		 
 	
 	
-	  . Add bootstrap CDN
-	  . Add jquery CDN
-	  . Any third party API
-      . Any database
-      . Any IDE	 
-      . API keys 	
+			. Add bootstrap CDN <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		
+			. Add jquery CDN https://code.jquery.com/jquery-3.5.1.min.js
+	  
+			. Add firebaseapi.js from scripts folder
+	  
+			. Add common.js from scripts folder
+			
+		STEP 3:> Get access to firebase database as a collaborator by emailing anyone of the team members. 
+		
+		STEP 4:> Begin coding
 		
 	--LINKS--
 		
 		Github repo: https://github.com/gauravkochar87/COMP-2800-Team-BBY-21-COVID-19-Simulator.git
 	
 		Test cases:  https://drive.google.com/file/d/1Lp3pm8NsAi8FCQgQT2PZ1I-7mxbiDOVP/view?usp=sharing
-
+		
+	
 
 
 ## Features
@@ -106,15 +111,15 @@ Organization and structure of files:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
-├── database.rules.json      # 
-├── debug.log                # 
-├── firebase.json            # 
-├── firestore.indexes.json   # 
-├── firestore.rules          # 
-└── geo.json                 #          
+├── database.rules.json      # Database rules
+├── debug.log                # Firebase Debug
+├── firebase.json            # Firebase hosting
+├── firestore.indexes.json   # Firebase Index
+├── firestore.rules          # Firestore rules
+└── geo.json                 # Maps Geo          
 └── index.html               # Landing page of the app 
-└── PBage.json               #      
-└── README.md                #
+└── PBage.json               # PBage      
+└── README.md                # readme file
           
 Contains the following subfolders:
 ├── images                   # Folder for images
@@ -148,7 +153,7 @@ Contains the following subfolders:
 	/main.css                # styling sheet for main page
 	/news.css                # styling sheet for news page
 	/simulation.css          # styling sheet for simulation page
-├── scripts                   # Folder for scripts
+├── scripts                  # Folder for scripts
     /aboutus.js              # JS Functions for aboutus page
     /auth.js                 # JS Functions related to firebase authentication
     /charts.js               # JS Functions for charts page
