@@ -91,7 +91,6 @@ body
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
 }
 
 #symptoms h1
@@ -202,7 +201,6 @@ body
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
 }
 
 #isolation h1
