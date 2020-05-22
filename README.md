@@ -72,13 +72,13 @@ These instructions will get you a copy of the project up and running on your loc
 	
 	
 			. Add bootstrap CDN <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> to your html file
 		
-			. Add jquery CDN https://code.jquery.com/jquery-3.5.1.min.js
+			. Add jquery CDN https://code.jquery.com/jquery-3.5.1.min.js to your html file
 	  
-			. Add firebaseapi.js from scripts folder
+			. Add firebaseapi.js from scripts folder to your html file
 	  
-			. Add common.js from scripts folder
+			. Add common.js from scripts folder to your html file
 			
 		STEP 3:> Get access to firebase database as a collaborator by emailing anyone of the team members. 
 		
